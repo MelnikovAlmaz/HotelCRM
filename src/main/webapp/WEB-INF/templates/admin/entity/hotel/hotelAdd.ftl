@@ -32,7 +32,7 @@
                         <label for="description">Description</label>
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>
-                            <textarea class="form-control" name="description"></textarea>
+                            <textarea class="form-control" name="description" placeholder="Description"></textarea>
                         </div>
                         <input type="submit" class="btn btn-success" value="Save">
                     </form>

@@ -1,0 +1,61 @@
+h1 {
+    margin: 0;
+    margin-bottom: 30px;
+    padding: 0 2rem;
+    font-family: ProximaNova-Bold,Arial,sans-serif;
+    font-size: 4.8rem;
+    line-height: 1em;
+    color: #fff;
+}
+.header-image {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background: url(/assets/img/background.auto) center 0 no-repeat;
+    max-height: 800px;
+    min-height: 650px;
+    will-change: transform;
+    -webkit-transition: background .2s ease;
+    transition: background .2s ease;
+}
+.header-form-area {
+    position: relative;
+    text-align: center;
+    left: 0;
+    right: 0;
+    top: 50%;
+    z-index: 2;
+    transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+.login-header {
+    height: 40px;
+    width: 100%;
+    background-color: #5e5e5e;
+}
+.nav-section {
+    min-height: 15%;
+    padding: 15px 0;
+}
+.filter-line {
+    height: 40px;
+    border: 3px solid #d4d4d4;
+    border-right-width: 0;
+    border-left-width: 0;
+}
+.main {
+    background-color: #d4d4d4;
+    height: 100%;
+    width: 100%;
+    padding: 10% 5% 0%;
+    display: inline-table;
+}
+.search-hotel-block {
+    margin-bottom: 20px;
+}
+.padding0{
+    padding: 0;
+}

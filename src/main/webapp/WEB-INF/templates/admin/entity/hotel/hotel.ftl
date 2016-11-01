@@ -35,8 +35,7 @@
                         <label for="description">Description</label>
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>
-                            <textarea class="form-control" name="description"
-                                      value="${hotel.description}"></textarea>
+                            <textarea class="form-control" name="description" placeholder="Description">${hotel.description}</textarea>
                         </div>
                         <input type="submit" class="btn btn-success" value="Save">
                     </form>
