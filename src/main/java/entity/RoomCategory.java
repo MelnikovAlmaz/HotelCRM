@@ -2,9 +2,10 @@ package entity;
 
 public class RoomCategory {
     private Integer id;
-    private Integer bedNumber;
-    private Double cost;
+    private Integer bunks;
+    private Double price;
     private String description;
+    private Hotel hotel;
 
     public Integer getId() {
         return id;
@@ -14,20 +15,20 @@ public class RoomCategory {
         this.id = id;
     }
 
-    public Integer getBedNumber() {
-        return bedNumber;
+    public Integer getBunks() {
+        return bunks;
     }
 
-    public void setBedNumber(Integer bedNumber) {
-        this.bedNumber = bedNumber;
+    public void setBunks(Integer bunks) {
+        this.bunks = bunks;
     }
 
-    public Double getCost() {
-        return cost;
+    public Double getPrice() {
+        return price;
     }
 
-    public void setCost(Double cost) {
-        this.cost = cost;
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
     public String getDescription() {
@@ -36,5 +37,13 @@ public class RoomCategory {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
     }
 }

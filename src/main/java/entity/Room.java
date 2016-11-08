@@ -3,6 +3,8 @@ package entity;
 public class Room {
     private Integer id;
     private Integer number;
+    private Boolean isCleaned;
+    private Boolean isAvailable;
     private Hotel hotel;
     private RoomCategory category;
 
@@ -20,6 +22,22 @@ public class Room {
 
     public void setNumber(Integer number) {
         this.number = number;
+    }
+
+    public Boolean getCleaned() {
+        return isCleaned;
+    }
+
+    public void setCleaned(Boolean cleaned) {
+        isCleaned = cleaned;
+    }
+
+    public Boolean getAvailable() {
+        return isAvailable;
+    }
+
+    public void setAvailable(Boolean available) {
+        isAvailable = available;
     }
 
     public Hotel getHotel() {
