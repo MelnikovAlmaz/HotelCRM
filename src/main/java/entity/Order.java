@@ -1,13 +1,16 @@
 package entity;
 
+import java.sql.Date;
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Order {
     private Integer id;
-    private LocalDate beginDate;
-    private LocalDate endDate;
-    private LocalDateTime orderTime;
+    private Date beginDate;
+    private Date endDate;
+    private Timestamp orderTime;
     private Double price;
     private Guest guest;
     private Room room;
@@ -20,27 +23,31 @@ public class Order {
         this.id = id;
     }
 
-    public LocalDate getBeginDate() {
+    public Date getBeginDate() {
         return beginDate;
     }
 
-    public void setBeginDate(LocalDate beginDate) {
+    public void setBeginDate(Date beginDate) {
         this.beginDate = beginDate;
     }
 
-    public LocalDate getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
+    public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
 
-    public LocalDateTime getOrderTime() {
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public Timestamp getOrderTime() {
         return orderTime;
     }
 
-    public void setOrderTime(LocalDateTime orderTime) {
+    public void setOrderTime(Timestamp orderTime) {
         this.orderTime = orderTime;
     }
 

@@ -1,20 +1,21 @@
 package entity;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class WorkSchedule {
-    private Integer id;
+    private LocalDate date;
     private Integer weekday;
     private LocalTime startTime;
     private LocalTime endTime;
     private Employee employee;
 
-    public Integer getId() {
-        return id;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     public Integer getWeekday() {

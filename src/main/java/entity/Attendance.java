@@ -3,18 +3,9 @@ package entity;
 import java.time.LocalDateTime;
 
 public class Attendance {
-    private Integer id;
     private LocalDateTime timeIn;
     private LocalDateTime timeOut;
     private Employee employee;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public LocalDateTime getTimeIn() {
         return timeIn;
