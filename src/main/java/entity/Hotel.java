@@ -6,6 +6,8 @@ public class Hotel {
     private String phoneNumber;
     private String address;
     private String description;
+    private Employee manager;
+    private City city;
 
     public Integer getId() {
         return id;
@@ -45,5 +47,21 @@ public class Hotel {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Employee getManager() {
+        return manager;
+    }
+
+    public void setManager(Employee manager) {
+        this.manager = manager;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
     }
 }
