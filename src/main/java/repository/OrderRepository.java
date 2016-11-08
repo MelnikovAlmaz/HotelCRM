@@ -4,13 +4,17 @@ import entity.Guest;
 import entity.Order;
 import entity.Room;
 
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.List;
 
 public interface OrderRepository {
     Order findOrderById(Integer id);
-    void create(LocalDate beginDate, LocalDate endDate, Double price, Guest guest, Room room);
-    void update(Integer id, LocalDate beginDate, LocalDate endDate, Double price, Guest guest, Room room);
+
+    void create(Date beginDate, Date endDate, Double price, Guest guest, Room room);
+
+    void update(Integer id, Date beginDate, Date endDate, Double price, Guest guest, Room room);
+
     void delete(Integer id);
+
     List<Order> findAllOrders();
 }
