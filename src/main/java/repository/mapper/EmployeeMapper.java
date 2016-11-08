@@ -5,12 +5,14 @@ import entity.Employee;
 import entity.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 import repository.DepartmentRepository;
 import repository.RoleRepository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+@Component
 public class EmployeeMapper implements RowMapper<Employee> {
     @Autowired
     RoleRepository roleRepository;

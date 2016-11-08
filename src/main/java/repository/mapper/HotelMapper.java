@@ -5,12 +5,14 @@ import entity.Employee;
 import entity.Hotel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 import repository.CityRepository;
 import repository.EmployeeRepository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+@Component
 public class HotelMapper implements RowMapper<Hotel> {
     @Autowired
     EmployeeRepository employeeRepository;
