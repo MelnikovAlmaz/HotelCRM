@@ -7,6 +7,7 @@ public class Employee {
     private Boolean isFired;
     private Role role;
     private String salaryType;
+    private Department department;
 
     public Integer getId() {
         return id;
@@ -54,5 +55,13 @@ public class Employee {
 
     public void setSalaryType(String salaryType) {
         this.salaryType = salaryType;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 }
