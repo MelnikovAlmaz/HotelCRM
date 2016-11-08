@@ -1,15 +1,16 @@
 package entity;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Order {
     private Integer id;
+    private LocalDate beginDate;
+    private LocalDate endDate;
     private LocalDateTime orderTime;
-    private LocalDateTime arrivalTime;
-    private LocalDateTime departureTime;
-    private Client client;
+    private Double price;
+    private Guest guest;
     private Room room;
-    private double cost;
 
     public Integer getId() {
         return id;
@@ -17,6 +18,22 @@ public class Order {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public LocalDate getBeginDate() {
+        return beginDate;
+    }
+
+    public void setBeginDate(LocalDate beginDate) {
+        this.beginDate = beginDate;
+    }
+
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
     }
 
     public LocalDateTime getOrderTime() {
@@ -27,28 +44,12 @@ public class Order {
         this.orderTime = orderTime;
     }
 
-    public LocalDateTime getArrivalTime() {
-        return arrivalTime;
+    public Guest getGuest() {
+        return guest;
     }
 
-    public void setArrivalTime(LocalDateTime arrivalTime) {
-        this.arrivalTime = arrivalTime;
-    }
-
-    public LocalDateTime getDepartureTime() {
-        return departureTime;
-    }
-
-    public void setDepartureTime(LocalDateTime departureTime) {
-        this.departureTime = departureTime;
-    }
-
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
+    public void setGuest(Guest guest) {
+        this.guest = guest;
     }
 
     public Room getRoom() {
@@ -59,11 +60,11 @@ public class Order {
         this.room = room;
     }
 
-    public double getCost() {
-        return cost;
+    public double getPrice() {
+        return price;
     }
 
-    public void setCost(double cost) {
-        this.cost = cost;
+    public void setPrice(double price) {
+        this.price = price;
     }
 }
