@@ -1,5 +1,7 @@
 package repository.impl;
 
+import entity.City;
+import entity.Employee;
 import entity.Hotel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -17,31 +19,33 @@ import java.util.List;
 public class HotelRepositoryImpl implements HotelRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
+    @Autowired
+    private HotelMapper hotelMapper;
 
     @Override
     public Hotel findHotelById(Integer id) {
         String SQL = "SELECT * FROM Hotel WHERE id = ?";
-        Hotel hotel = jdbcTemplate.queryForObject(SQL, new Object[]{id}, new HotelMapper());
+        Hotel hotel = jdbcTemplate.queryForObject(SQL, new Object[]{id}, hotelMapper);
         return hotel;
     }
 
     @Override
     public List<Hotel> findAllHotels() {
         String SQL = "SELECT * FROM Hotel";
-        List<Hotel> hotels = jdbcTemplate.query(SQL, new HotelMapper());
+        List<Hotel> hotels = jdbcTemplate.query(SQL, hotelMapper);
         return hotels;
     }
 
     @Override
-    public void create(String name, String phoneNumber, String address, String description) {
-        String SQL = "INSERT INTO Hotel (name, phoneNumber, address, description) VALUES (?, ?, ?, ?)";
-        jdbcTemplate.update( SQL, name, phoneNumber, address, description);
+    public void create(String name, String phoneNumber, String address, String description, Employee employee, City city) {
+        String SQL = "INSERT INTO Hotel (name, phoneNumber, address, description, employeeId, cityId) VALUES (?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update( SQL, name, phoneNumber, address, description, employee.getId(), city.getId());
     }
 
     @Override
-    public void update(Integer id, String name, String phoneNumber, String address, String description) {
-        String SQL = "UPDATE Hotel SET name = ?, phoneNumber = ?, address = ?, description = ? WHERE id = ?";
-        jdbcTemplate.update( SQL, name, phoneNumber, address, description, id);
+    public void update(Integer id, String name, String phoneNumber, String address, String description, Employee employee, City city) {
+        String SQL = "UPDATE Hotel SET name = ?, phoneNumber = ?, address = ?, description = ? employeeId = ?, cityId = ? WHERE id = ?";
+        jdbcTemplate.update( SQL, name, phoneNumber, address, description, employee.getId(), city.getId(), id);
     }
 
     @Override
@@ -54,7 +58,7 @@ public class HotelRepositoryImpl implements HotelRepository {
     public List<Hotel> findHotelsByName(String name) {
         name = "%" + name + "%";
         String SQL = "SELECT * FROM Hotel WHERE name LIKE ?";
-        List<Hotel> hotels = jdbcTemplate.query(SQL, new Object[]{name}, new HotelMapper());
+        List<Hotel> hotels = jdbcTemplate.query(SQL, new Object[]{name}, hotelMapper);
         return hotels;
     }
 
