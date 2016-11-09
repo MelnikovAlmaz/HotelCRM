@@ -20,7 +20,7 @@ public class RoomCategoryMapper implements RowMapper<RoomCategory> {
         RoomCategory roomCategory = new RoomCategory();
         roomCategory.setId(resultSet.getInt("id"));
         roomCategory.setName(resultSet.getString("name"));
-        roomCategory.setBunks(resultSet.getInt("bunks"));
+        roomCategory.setBeds(resultSet.getInt("beds"));
         roomCategory.setPrice(resultSet.getDouble("price"));
         roomCategory.setDescription(resultSet.getString("description"));
         Hotel hotel = hotelRepository.findHotelById(resultSet.getInt("hotelId"));

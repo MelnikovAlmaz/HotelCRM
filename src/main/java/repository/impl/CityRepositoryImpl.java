@@ -47,4 +47,11 @@ public class CityRepositoryImpl implements CityRepository {
         List<City> cities = jdbcTemplate.query(SQL, cityMapper);
         return cities;
     }
+
+    @Override
+    public City findCityByName(String name) {
+        String SQL = "SELECT * FROM City WHERE name = ?";
+        City city = jdbcTemplate.queryForObject(SQL, new Object[]{name}, cityMapper);
+        return city;
+    }
 }

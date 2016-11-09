@@ -3,7 +3,7 @@ package entity;
 public class RoomCategory {
     private Integer id;
     private String name;
-    private Integer bunks;
+    private Integer beds;
     private Double price;
     private String description;
     private Hotel hotel;
@@ -24,12 +24,12 @@ public class RoomCategory {
         this.name = name;
     }
 
-    public Integer getBunks() {
-        return bunks;
+    public Integer getBeds() {
+        return beds;
     }
 
-    public void setBunks(Integer bunks) {
-        this.bunks = bunks;
+    public void setBeds(Integer beds) {
+        this.beds = beds;
     }
 
     public Double getPrice() {

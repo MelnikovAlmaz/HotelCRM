@@ -25,15 +25,15 @@ public class RoomCategoryRepositoryImpl implements RoomCategoryRepository {
     }
 
     @Override
-    public void create(String name, Integer bunks, Double price, String description, Hotel hotel) {
-        String SQL = "INSERT INTO RoomCategory (name, bunks, price, description, hotelId) VALUES (?, ?, ?, ?, ?)";
-        jdbcTemplate.update(SQL, name, bunks, price, description, hotel.getId());
+    public void create(String name, Integer beds, Double price, String description, Hotel hotel) {
+        String SQL = "INSERT INTO RoomCategory (name, beds, price, description, hotelId) VALUES (?, ?, ?, ?, ?)";
+        jdbcTemplate.update(SQL, name, beds, price, description, hotel.getId());
     }
 
     @Override
-    public void update(Integer id, String name, Integer bunks, Double price, String description, Hotel hotel) {
-        String SQL = "UPDATE RoomCategory SET name = ? bunks = ? price = ? description = ? hotelId = ? WHERE id = ?";
-        jdbcTemplate.update(SQL, name, bunks, price, description, hotel.getId(), id);
+    public void update(Integer id, String name, Integer beds, Double price, String description, Hotel hotel) {
+        String SQL = "UPDATE RoomCategory SET name = ? beds = ? price = ? description = ? hotelId = ? WHERE id = ?";
+        jdbcTemplate.update(SQL, name, beds, price, description, hotel.getId(), id);
     }
 
     @Override
@@ -44,7 +44,7 @@ public class RoomCategoryRepositoryImpl implements RoomCategoryRepository {
 
     @Override
     public List<RoomCategory> findAllRoomCategories() {
-        String SQL = "SELECT * FROM RoomCategory ORDER BY bunks ASC";
+        String SQL = "SELECT * FROM RoomCategory ORDER BY beds ASC";
         List<RoomCategory> roomCategories = jdbcTemplate.query(SQL, roomCategoryMapper);
         return roomCategories;
     }

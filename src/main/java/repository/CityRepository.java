@@ -10,4 +10,6 @@ public interface CityRepository {
     void update(Integer id, String name);
     void delete(Integer id);
     List<City> findAllCities();
+
+    City findCityByName(String name);
 }
