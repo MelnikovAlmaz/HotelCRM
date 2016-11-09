@@ -33,10 +33,10 @@ public class HotelServiceImpl implements HotelService {
     @Override
     public void save(Hotel hotel) {
         if(hotel.getId() != null) {
-            hotelRepository.update(hotel.getId(), hotel.getName(), hotel.getPhoneNumber(), hotel.getAddress(), hotel.getDescription());
+            hotelRepository.update(hotel.getId(), hotel.getName(), hotel.getPhoneNumber(), hotel.getAddress(), hotel.getDescription(), hotel.getManager(), hotel.getCity());
         }
         else {
-            hotelRepository.create(hotel.getName(), hotel.getPhoneNumber(), hotel.getAddress(), hotel.getDescription());
+            hotelRepository.create(hotel.getName(), hotel.getPhoneNumber(), hotel.getAddress(), hotel.getDescription(), hotel.getManager(), hotel.getCity());
         }
     }
 
