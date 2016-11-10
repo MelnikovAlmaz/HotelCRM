@@ -3,6 +3,8 @@ package entity;
 public class Employee {
     private Integer id;
     private String name;
+    private String phoneNumber;
+    private String password;
     private Double salary;
     private Boolean isFired;
     private Role role;
@@ -23,6 +25,22 @@ public class Employee {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Double getSalary() {

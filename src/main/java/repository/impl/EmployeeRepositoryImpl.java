@@ -26,15 +26,15 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     }
 
     @Override
-    public void create(String name, Double salary, Boolean isFired, Role role, String salaryType, Department department) {
-        String SQL = "INSERT INTO Employee (name, salary, isFired, roleId, salaryType, departmentId) VALUES (?, ?, ?, ?, ?, ?)";
-        jdbcTemplate.update(SQL, name, salary, isFired, role.getId(), salaryType, department.getId());
+    public void create(String name, String phoneNumber, String password, Double salary, Boolean isFired, Role role, String salaryType, Department department) {
+        String SQL = "INSERT INTO Employee (name, phoneNumber, password, salary, isFired, roleId, salaryType, departmentId) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update(SQL, name, phoneNumber, password, salary, isFired, role.getId(), salaryType, department.getId());
     }
 
     @Override
-    public void update(Integer id, String name, Double salary, Boolean isFired, Role role, String salaryType, Department department) {
-        String SQL = "UPDATE Employee SET name = ? salary = ? isFired = ? roleId = ? salaryType = ? departmentId = ? WHERE id = ?";
-        jdbcTemplate.update(SQL, name, salary, isFired, role.getId(), salaryType, department.getId(), id);
+    public void update(Integer id, String name, String phoneNumber, String password, Double salary, Boolean isFired, Role role, String salaryType, Department department) {
+        String SQL = "UPDATE Employee SET name = ? phoneNumber = ? password = ? salary = ? isFired = ? roleId = ? salaryType = ? departmentId = ? WHERE id = ?";
+        jdbcTemplate.update(SQL, name, phoneNumber, password, salary, isFired, role.getId(), salaryType, department.getId(), id);
     }
 
     @Override

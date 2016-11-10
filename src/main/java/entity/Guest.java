@@ -5,6 +5,7 @@ public class Guest {
     private String name;
     private String phoneNumber;
     private String passport;
+    private String password;
 
     public Integer getId() {
         return id;
@@ -36,5 +37,13 @@ public class Guest {
 
     public void setPassport(String passport) {
         this.passport = passport;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

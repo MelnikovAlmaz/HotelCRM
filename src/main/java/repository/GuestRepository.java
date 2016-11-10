@@ -9,7 +9,10 @@ import java.util.List;
 public interface GuestRepository {
     Guest findGuestById(Integer id);
     List<Guest> findAllGuests();
-    void create(String name, String phoneNumber, String passport);
-    void update(Integer id, String name, String phoneNumber, String passport);
+
+    void create(String name, String phoneNumber, String passport, String password);
+
+    void update(Integer id, String name, String phoneNumber, String passport, String password);
+
     void delete(Integer id);
 }
