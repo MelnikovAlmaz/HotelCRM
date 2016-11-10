@@ -55,4 +55,10 @@ public class HotelServiceImpl implements HotelService {
         List<HotelInfo> hotelsInfo = hotelRepository.findHotelInfo(name, beginDate, endDate, guestNumber);
         return hotelsInfo;
     }
+
+    @Override
+    public List<Hotel> findHotelsByManagerId(Integer managerId) {
+        List<Hotel> hotels = hotelRepository.findHotelsByManagerId(managerId);
+        return  hotels;
+    }
 }

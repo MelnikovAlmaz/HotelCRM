@@ -14,4 +14,5 @@ public interface HotelService {
     void save(Hotel hotel);
     List<String> findHotelsByName(String name);
     List<HotelInfo> findHotelInfo(String name, LocalDate beginDate, LocalDate endDate, Integer guestNumber);
+    List<Hotel> findHotelsByManagerId(Integer managerId);
 }
