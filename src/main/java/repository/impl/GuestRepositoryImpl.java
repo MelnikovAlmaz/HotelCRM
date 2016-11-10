@@ -31,15 +31,15 @@ public class GuestRepositoryImpl implements GuestRepository {
     }
 
     @Override
-    public void create(String firstName, String lastName, String phoneNumber) {
-        String SQL = "INSERT INTO Guest (firstName, lastName, phoneNumber) VALUES (?, ?, ?)";
-        jdbcTemplate.update( SQL, firstName, lastName, phoneNumber);
+    public void create(String firstName, String lastName, String phoneNumber, String password) {
+        String SQL = "INSERT INTO Guest (firstName, lastName, phoneNumber, password) VALUES (?, ?, ?, ?)";
+        jdbcTemplate.update( SQL, firstName, lastName, phoneNumber, password);
     }
 
     @Override
-    public void update(Integer id, String firstName, String lastName, String phoneNumber) {
-        String SQL = "UPDATE Guest SET firstName = ?, lastName = ?, phoneNumber = ? WHERE id = ?";
-        jdbcTemplate.update( SQL, firstName, lastName, phoneNumber, id);
+    public void update(Integer id, String firstName, String lastName, String phoneNumber, String password) {
+        String SQL = "UPDATE Guest SET firstName = ?, lastName = ?, phoneNumber = ? password = ? WHERE id = ?";
+        jdbcTemplate.update( SQL, firstName, lastName, phoneNumber, password, id);
     }
 
     @Override

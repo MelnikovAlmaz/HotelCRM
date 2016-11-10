@@ -19,7 +19,7 @@
                             <span class="input-group-addon"></span>
                             <input type="text" class="form-control" name="name" placeholder="Name">
                         </div>
-                        <label for="lastName">Passport</label>
+                        <label for="passport">Passport</label>
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>
                             <input type="text" class="form-control" name="passport" placeholder="Passport">
@@ -28,6 +28,11 @@
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>
                             <input type="text" class="form-control" name="phoneNumber" placeholder="Phone Number">
+                        </div>
+                        <label for="password">Password</label>
+                        <div class="input-group input-margin">
+                            <span class="input-group-addon"></span>
+                            <input type="text" class="form-control" name="password" placeholder="Password">
                         </div>
                         <input type="submit" class="btn btn-success" value="Save">
                     </form>

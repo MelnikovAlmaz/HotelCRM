@@ -28,10 +28,10 @@ public class GuestServiceImpl implements GuestService {
     @Override
     public void save(Guest guest) {
         if(guest.getId() == null){
-            guestRepository.create(guest.getName(), guest.getPhoneNumber(), guest.getPassport());
+            guestRepository.create(guest.getName(), guest.getPhoneNumber(), guest.getPassport(), guest.getPassword());
         }
         else {
-            guestRepository.update(guest.getId(), guest.getName(), guest.getPhoneNumber(), guest.getPassport());
+            guestRepository.update(guest.getId(), guest.getName(), guest.getPhoneNumber(), guest.getPassport(), guest.getPassword());
         }
     }
 
