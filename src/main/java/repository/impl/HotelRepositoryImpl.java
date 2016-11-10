@@ -38,13 +38,13 @@ public class HotelRepositoryImpl implements HotelRepository {
 
     @Override
     public void create(String name, String phoneNumber, String address, String description, Employee employee, City city) {
-        String SQL = "INSERT INTO Hotel (name, phoneNumber, address, description, employeeId, cityId) VALUES (?, ?, ?, ?, ?, ?)";
+        String SQL = "INSERT INTO Hotel (name, phoneNumber, address, description, managerId, cityId) VALUES (?, ?, ?, ?, ?, ?)";
         jdbcTemplate.update( SQL, name, phoneNumber, address, description, employee.getId(), city.getId());
     }
 
     @Override
     public void update(Integer id, String name, String phoneNumber, String address, String description, Employee employee, City city) {
-        String SQL = "UPDATE Hotel SET name = ?, phoneNumber = ?, address = ?, description = ? employeeId = ?, cityId = ? WHERE id = ?";
+        String SQL = "UPDATE Hotel SET name = ?, phoneNumber = ?, address = ?, description = ? managerId = ?, cityId = ? WHERE id = ?";
         jdbcTemplate.update( SQL, name, phoneNumber, address, description, employee.getId(), city.getId(), id);
     }
 
@@ -69,5 +69,12 @@ public class HotelRepositoryImpl implements HotelRepository {
         Object[] data = new Object[]{name, Date.valueOf(beginDate), Date.valueOf(endDate), guestNumber};
         List<HotelInfo> hotelsInfo = jdbcTemplate.query(SQL, data, new HotelInfoMapper());
         return hotelsInfo;
+    }
+
+    @Override
+    public List<Hotel> findHotelsByManagerId(Integer managerId) {
+        String SQL = "SELECT * FROM Hotel WHERE managerId = ? ORDER BY NAME ASC ";
+        List<Hotel> hotels = jdbcTemplate.query(SQL, new Object[]{managerId}, hotelMapper);
+        return hotels;
     }
 }

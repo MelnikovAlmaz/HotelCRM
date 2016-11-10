@@ -57,7 +57,7 @@ public class HotelManagementController {
 
     @RequestMapping(value = "/new", method = RequestMethod.GET)
     public String addPage() {
-        return "admin/entity/hotel/hotelAdd";
+        return "admin/administrator/hotelAdd";
     }
 
     @RequestMapping(value = "/new", method = RequestMethod.POST)

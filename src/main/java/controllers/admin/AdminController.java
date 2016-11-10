@@ -1,15 +1,18 @@
 package controllers.admin;
 
+import entity.City;
 import entity.Employee;
 import entity.Hotel;
 import entity.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import service.CityService;
 import service.EmployeeService;
 import service.HotelService;
 import service.RoleService;
@@ -25,6 +28,8 @@ public class AdminController {
     private RoleService roleService;
     @Autowired
     private EmployeeService employeeService;
+    @Autowired
+    private CityService cityService;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String main(ModelMap model) {
@@ -33,7 +38,9 @@ public class AdminController {
 
     @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
     public String dashboard(ModelMap model) {
-        List<Hotel> hotels = hotelService.findAllHotels();
+        Employee employee = getPrincipal();
+        List<Hotel> hotels = hotelService.findHotelsByManagerId(employee.getId());
+
         model.addAttribute("hotels", hotels);
         return "admin/administrator/admin_main";
     }
@@ -68,8 +75,46 @@ public class AdminController {
         return "redirect:/login";
     }
 
+    @RequestMapping(value = "/dashboard/hotel/new", method = RequestMethod.GET)
+    public String newHotel(Model model) {
+        List<City> cities = cityService.findAllCities();
+        model.addAttribute("cities", cities);
+        return "admin/administrator/hotelAdd";
+    }
+
+    @RequestMapping(value = "/dashboard/hotel/new", method = RequestMethod.POST)
+    public String newHotelPost(Model model,
+                               @RequestParam String name,
+                               @RequestParam String phoneNumber,
+                               @RequestParam String address,
+                               @RequestParam(value = "city") Integer cityId,
+                               @RequestParam String description) {
+        Employee employee = getPrincipal();
+        if(phoneNumber.length() == 11 && name.length() > 0 && cityId != null && cityId > 0){
+            Hotel hotel = new Hotel();
+            hotel.setName(name);
+            hotel.setPhoneNumber(phoneNumber);
+            City city = cityService.findCityById(cityId);
+            hotel.setCity(city);
+            hotel.setManager(employee);
+            hotel.setAddress(address);
+            hotel.setDescription(description);
+            hotelService.save(hotel);
+
+            return "redirect:/dashboard";
+        }
+        else {
+            return "redirect:/dashboard/hotel/new";
+        }
+    }
+
     @RequestMapping(value = "/entity", method = RequestMethod.GET)
     public String entityPage(ModelMap model) {
         return "redirect:/admin/entity/hotels";
+    }
+
+    private Employee getPrincipal(){
+        Employee employee = (Employee) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return employee;
     }
 }

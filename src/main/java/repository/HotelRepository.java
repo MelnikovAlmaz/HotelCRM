@@ -18,4 +18,5 @@ public interface HotelRepository {
     void delete(Integer id);
     List<Hotel> findHotelsByName(String name);
     List<HotelInfo> findHotelInfo(String name, LocalDate beginDate, LocalDate endDate, Integer guestNumber);
+    List<Hotel> findHotelsByManagerId(Integer managerId);
 }
