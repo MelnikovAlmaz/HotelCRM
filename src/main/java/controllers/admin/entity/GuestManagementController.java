@@ -39,13 +39,15 @@ public class GuestManagementController {
     public String editPage(ModelMap model, @PathVariable Integer id,
                            @RequestParam String name,
                            @RequestParam String phoneNumber,
-                           @RequestParam String passport) {
+                           @RequestParam String passport,
+                           @RequestParam String password) {
         try {
             Guest guest = new Guest();
             guest.setId(id);
             guest.setName(name);
             guest.setPhoneNumber(phoneNumber);
             guest.setPassport(passport);
+            guest.setPassport(password);
             guestService.save(guest);
 
             model.addAttribute("isSuccess", true);
@@ -65,12 +67,14 @@ public class GuestManagementController {
     public String addPage(ModelMap model,
                           @RequestParam String name,
                           @RequestParam String phoneNumber,
-                          @RequestParam String passport) {
+                          @RequestParam String passport,
+                          @RequestParam String password) {
         try {
             Guest guest = new Guest();
             guest.setName(name);
             guest.setPhoneNumber(phoneNumber);
             guest.setPassport(passport);
+            guest.setPassword(password);
             guestService.save(guest);
 
             model.addAttribute("isSuccess", true);
