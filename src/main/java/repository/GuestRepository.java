@@ -10,9 +10,9 @@ public interface GuestRepository {
     Guest findGuestById(Integer id);
     List<Guest> findAllGuests();
 
-    void create(String firstName, String lastName, String phoneNumber, String password);
+    void create(String name, String phoneNumber, String passport, String password);
 
-    void update(Integer id, String firstName, String lastName, String phoneNumber, String password);
+    void update(Integer id, String name, String phoneNumber, String passport, String password);
 
     void delete(Integer id);
 }
