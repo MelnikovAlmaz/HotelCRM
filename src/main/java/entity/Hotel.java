@@ -1,6 +1,8 @@
 package entity;
 
-public class Hotel {
+import java.io.Serializable;
+
+public class Hotel implements Serializable{
     private Integer id;
     private String name;
     private String phoneNumber;
