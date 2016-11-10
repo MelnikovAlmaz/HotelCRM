@@ -11,18 +11,15 @@
     <http realm="JavaStudy example" auto-config="true" use-expressions="true">
         <intercept-url pattern="/" access="permitAll()"/>
         <intercept-url pattern="/api/**" access="permitAll()"/>
-        <intercept-url pattern="/login" access="isAnonymous()"/>
-        <intercept-url pattern="/logout" access="hasAnyRole('ROLE_PASSENGER', 'ROLE_DRIVER')"/>
-        <intercept-url pattern="/register" access="isAnonymous()"/>
-        <intercept-url pattern="/register/**" access="isAnonymous()"/>
-        <intercept-url pattern="/cabinet" access="hasAnyRole('ROLE_PASSENGER', 'ROLE_DRIVER')"/>
-        <intercept-url pattern="/client/**" access="hasRole('ROLE_PASSENGER')"/>
-        <intercept-url pattern="/driver/**" access="hasRole('ROLE_DRIVER')"/>
+        <intercept-url pattern="/admin/login" access="isAnonymous()"/>
+        <intercept-url pattern="/admin/logout" access="hasAnyRole('Administrator')"/>
+        <intercept-url pattern="/admin/register" access="isAnonymous()"/>
+        <intercept-url pattern="/admin/dashboard" access="hasAnyRole('Administrator')"/>
 
         <form-login
                 login-page="/admin/login"
                 default-target-url="/admin/dashboard"
-                authentication-failure-url="/login?error=1"
+                authentication-failure-url="/admin/login?error=1"
                 username-parameter="phoneNumber"
                 password-parameter="password"
         />
