@@ -11,9 +11,8 @@ h1 {
     height: 100%;
     width: 100%;
     background-size: cover;
-    background: url(/assets/img/background.auto) center 0 no-repeat;
-    max-height: 800px;
-    min-height: 650px;
+    background: url(/assets/img/mainpic.jpg) center fixed no-repeat;
+
     will-change: transform;
     -webkit-transition: background .2s ease;
     transition: background .2s ease;
