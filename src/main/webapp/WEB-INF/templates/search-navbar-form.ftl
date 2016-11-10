@@ -12,5 +12,5 @@
         <input type="number" step="1" class="form-control" name="guestNumber" style="width: 100px"
                placeholder="Guests">
     </div>
-    <button type="submit" class="btn btn-success">Submit</button>
+    <button type="submit" class="btn btn-success">Search</button>
 </form>
