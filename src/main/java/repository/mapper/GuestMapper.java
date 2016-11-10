@@ -16,6 +16,7 @@ public class GuestMapper implements RowMapper<Guest>{
         guest.setName(resultSet.getString("name"));
         guest.setPhoneNumber(resultSet.getString("phoneNumber"));
         guest.setPassport(resultSet.getString("passport"));
+        guest.setPassword(resultSet.getString("password"));
         return guest;
     }
 }

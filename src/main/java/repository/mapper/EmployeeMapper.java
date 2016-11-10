@@ -24,9 +24,11 @@ public class EmployeeMapper implements RowMapper<Employee> {
         Employee employee = new Employee();
         employee.setId(resultSet.getInt("id"));
         employee.setName(resultSet.getString("name"));
+        employee.setPhoneNumber(resultSet.getString("phoneNumber"));
         employee.setFired(resultSet.getBoolean("isFired"));
         employee.setSalary(resultSet.getDouble("salary"));
         employee.setSalaryType(resultSet.getString("salaryType"));
+        employee.setPassword(resultSet.getString("password"));
         Role role = roleRepository.findRoleById(resultSet.getInt("roleId"));
         employee.setRole(role);
         Department department = departmentRepository.findDepartmentById(resultSet.getInt("departmentId"));
