@@ -1,6 +1,6 @@
 package controllers.admin.entity;
 
-import entity.Client;
+import entity.Guest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -8,45 +8,45 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import service.ClientService;
+import service.GuestService;
 import service.HotelService;
 
 import java.util.List;
 
 @Controller
 @RequestMapping(value = "/admin/entity/client")
-public class ClientManagementController {
+public class GuestManagementController {
     @Autowired
-    ClientService clientService;
+    GuestService guestService;
     @Autowired
     HotelService hotelService;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String mainPage(ModelMap model) {
-        List<Client> clients = clientService.findAllClients();
-        model.addAttribute("clients", clients);
+        List<Guest> guests = guestService.findAllGuests();
+        model.addAttribute("clients", guests);
         return "admin/entity/client/clients";
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String editPage(ModelMap model, @PathVariable Integer id) {
-        Client client = clientService.findClientById(id);
-        model.addAttribute("client", client);
+        Guest guest = guestService.findGuestById(id);
+        model.addAttribute("client", guest);
         return "admin/entity/client/client";
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.POST)
     public String editPage(ModelMap model, @PathVariable Integer id,
-                           @RequestParam String firstName,
-                           @RequestParam String lastName,
-                           @RequestParam String phoneNumber) {
+                           @RequestParam String name,
+                           @RequestParam String phoneNumber,
+                           @RequestParam String passport) {
         try {
-            Client client = new Client();
-            client.setId(id);
-            client.setFirstName(firstName);
-            client.setLastName(lastName);
-            client.setPhoneNumber(phoneNumber);
-            clientService.save(client);
+            Guest guest = new Guest();
+            guest.setId(id);
+            guest.setName(name);
+            guest.setPhoneNumber(phoneNumber);
+            guest.setPassport(passport);
+            guestService.save(guest);
 
             model.addAttribute("isSuccess", true);
         }
@@ -63,15 +63,15 @@ public class ClientManagementController {
 
     @RequestMapping(value = "/new", method = RequestMethod.POST)
     public String addPage(ModelMap model,
-                           @RequestParam String firstName,
-                           @RequestParam String lastName,
-                           @RequestParam String phoneNumber) {
+                          @RequestParam String name,
+                          @RequestParam String phoneNumber,
+                          @RequestParam String passport) {
         try {
-            Client client = new Client();
-            client.setFirstName(firstName);
-            client.setLastName(lastName);
-            client.setPhoneNumber(phoneNumber);
-            clientService.save(client);
+            Guest guest = new Guest();
+            guest.setName(name);
+            guest.setPhoneNumber(phoneNumber);
+            guest.setPassport(passport);
+            guestService.save(guest);
 
             model.addAttribute("isSuccess", true);
         }
