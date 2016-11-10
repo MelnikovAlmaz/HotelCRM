@@ -1,19 +1,19 @@
 <html>
 <head>
-<#include "../../head.ftl">
+<#include "../head.ftl">
 </head>
 <body>
-<#include "../../navBar.ftl">
+<#include "../navBar.ftl">
 <div class="container">
     <div class="row">
-    <#include "../leftBar.ftl">
+    <#include "leftBar.ftl">
         <main class="col-lg-7">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <span>Hotel</span>
+                    <span>New Hotel</span>
                 </div>
                 <div class="panel-body">
-                    <form method="post" action="/admin/entity/hotel/new">
+                    <form method="post" action="/admin/dashboard/hotel/new">
                         <label for="name">Name</label>
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>
@@ -23,6 +23,16 @@
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>
                             <input type="text" class="form-control" name="phoneNumber" placeholder="Phone Number">
+                        </div>
+                        <div class="control-group ">
+                            <label class="control-label" for="">City</label>
+                            <div class="input-group input-margin">
+                                <select class="form-control" size="1" name="city">
+                                <#list cities as city>
+                                    <option value="${city.id}">${city.name}</option>
+                                </#list>
+                                </select>
+                            </div>
                         </div>
                         <label for="address">Address</label>
                         <div class="input-group input-margin">
@@ -34,6 +44,7 @@
                             <span class="input-group-addon"></span>
                             <textarea class="form-control" name="description" placeholder="Description"></textarea>
                         </div>
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                         <input type="submit" class="btn btn-success" value="Save">
                     </form>
                 </div>
