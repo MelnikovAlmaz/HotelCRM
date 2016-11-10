@@ -13,20 +13,20 @@
                 <tr>
                     <th>#</th>
                     <th>First Name</th>
-                    <th>Last Name</th>
+                    <th>Passport</th>
                     <th>Phone Number</th>
                     <th>Edit</th>
                 </tr>
                 </thead>
                 <tbody>
-                <#list clients as client>
+                <#list guests as guest>
                 <tr>
-                    <td>${client.id}</td>
-                    <td>${client.firstName}</td>
-                    <td>${client.lastName}</td>
-                    <td>${client.phoneNumber}</td>
+                    <td>${guest.id}</td>
+                    <td>${guest.name}</td>
+                    <td>${guest.passport}</td>
+                    <td>${guest.phoneNumber}</td>
                     <td>
-                        <a href="/admin/entity/client/${client.id}">
+                        <a href="/admin/entity/guest/${guest.id}">
                             <button class="btn btn-warning">Edit</button>
                         </a>
                     </td>

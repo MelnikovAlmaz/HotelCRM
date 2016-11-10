@@ -10,24 +10,27 @@
         <main class="col-lg-7">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <span>Client</span>
+                    <span>Guest</span>
                 </div>
                 <div class="panel-body">
-                    <form method="post" action="/admin/entity/client/new">
-                        <label for="firstName">First Name</label>
+                    <form method="post" action="/admin/entity/guest/${guest.id}">
+                        <label for="name">Name</label>
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>
-                            <input type="text" class="form-control" name="firstName" placeholder="First Name">
+                            <input type="text" class="form-control" name="name" placeholder="Name"
+                                   value="${guest.name}">
                         </div>
-                        <label for="lastName">Last Name</label>
+                        <label for="lastName">Passport</label>
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>
-                            <input type="text" class="form-control" name="lastName" placeholder="Last Name">
+                            <input type="text" class="form-control" name="passport" placeholder="Passport"
+                                   value="${guest.passport}">
                         </div>
                         <label for="phoneNumber">Phone Number</label>
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>
-                            <input type="text" class="form-control" name="phoneNumber" placeholder="Phone Number">
+                            <input type="text" class="form-control" name="phoneNumber" placeholder="Phone Number"
+                                   value="${guest.phoneNumber}">
                         </div>
                         <input type="submit" class="btn btn-success" value="Save">
                     </form>

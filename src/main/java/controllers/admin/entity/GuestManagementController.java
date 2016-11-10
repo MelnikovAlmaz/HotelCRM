@@ -14,7 +14,7 @@ import service.HotelService;
 import java.util.List;
 
 @Controller
-@RequestMapping(value = "/admin/entity/client")
+@RequestMapping(value = "/admin/entity/guest")
 public class GuestManagementController {
     @Autowired
     GuestService guestService;
@@ -24,15 +24,15 @@ public class GuestManagementController {
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String mainPage(ModelMap model) {
         List<Guest> guests = guestService.findAllGuests();
-        model.addAttribute("clients", guests);
-        return "admin/entity/client/clients";
+        model.addAttribute("guests", guests);
+        return "admin/entity/guest/guests";
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String editPage(ModelMap model, @PathVariable Integer id) {
         Guest guest = guestService.findGuestById(id);
-        model.addAttribute("client", guest);
-        return "admin/entity/client/client";
+        model.addAttribute("guest", guest);
+        return "admin/entity/guest/guest";
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.POST)
@@ -53,12 +53,12 @@ public class GuestManagementController {
         catch (Exception e){
             model.addAttribute("isSuccess", false);
         }
-        return "redirect:/admin/entity/client/" + id;
+        return "redirect:/admin/entity/guest/" + id;
     }
 
     @RequestMapping(value = "/new", method = RequestMethod.GET)
     public String addPage() {
-        return "admin/entity/client/clientAdd";
+        return "admin/entity/guest/guestAdd";
     }
 
     @RequestMapping(value = "/new", method = RequestMethod.POST)
@@ -78,6 +78,6 @@ public class GuestManagementController {
         catch (Exception e){
             model.addAttribute("isSuccess", false);
         }
-        return "redirect:/admin/entity/client/new";
+        return "redirect:/admin/entity/guest/new";
     }
 }

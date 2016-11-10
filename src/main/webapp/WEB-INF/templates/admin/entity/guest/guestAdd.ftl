@@ -10,27 +10,24 @@
         <main class="col-lg-7">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <span>Client</span>
+                    <span>Guest</span>
                 </div>
                 <div class="panel-body">
-                    <form method="post" action="/admin/entity/client/${client.id}">
-                        <label for="firstName">First Name</label>
+                    <form method="post" action="/admin/entity/guest/new">
+                        <label for="name">Name</label>
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>
-                            <input type="text" class="form-control" name="firstName" placeholder="First Name"
-                                   value="${client.firstName}">
+                            <input type="text" class="form-control" name="name" placeholder="Name">
                         </div>
-                        <label for="lastName">Last Name</label>
+                        <label for="lastName">Passport</label>
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>
-                            <input type="text" class="form-control" name="lastName" placeholder="Last Name"
-                                   value="${client.lastName}">
+                            <input type="text" class="form-control" name="passport" placeholder="Passport">
                         </div>
                         <label for="phoneNumber">Phone Number</label>
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>
-                            <input type="text" class="form-control" name="phoneNumber" placeholder="Phone Number"
-                                   value="${client.phoneNumber}">
+                            <input type="text" class="form-control" name="phoneNumber" placeholder="Phone Number">
                         </div>
                         <input type="submit" class="btn btn-success" value="Save">
                     </form>
