@@ -4,6 +4,7 @@ import entity.Employee;
 import entity.Hotel;
 import entity.Role;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,6 +38,11 @@ public class AdminController {
         return "admin/administrator/admin_main";
     }
 
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login() {
+        return "admin/auth/login";
+    }
+
     @RequestMapping(value = "/signUp", method = RequestMethod.GET)
     public String signUp() {
         return "admin/auth/signUp";
@@ -53,13 +59,13 @@ public class AdminController {
             employee.setName(name);
             employee.setPhoneNumber(phoneNumber);
             employee.setPassword(password);
-            employee.setSalary(0.0);
+            employee.setSalary(1.0);
             employee.setSalaryType("Month");
             Role role =  roleService.findRoleByName("Administrator");
             employee.setRole(role);
             employeeService.save(employee);
         }
-        return "redirect:admin/dashboard";
+        return "redirect:/login";
     }
 
     @RequestMapping(value = "/entity", method = RequestMethod.GET)

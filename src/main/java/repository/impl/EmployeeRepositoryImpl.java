@@ -27,8 +27,8 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
     @Override
     public void create(String name, String phoneNumber, String password, Double salary, Role role, String salaryType, Department department) {
-        String SQL = "INSERT INTO Employee (name, phoneNumber, password, salary, roleId, salaryType, departmentId) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        jdbcTemplate.update(SQL, name, phoneNumber, password, salary, role.getId(), salaryType, department.getId());
+        String SQL = "INSERT INTO Employee (name, phoneNumber, password, salary, roleId, salaryType, departmentId) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update(SQL, name, phoneNumber, password, salary, role.getId(), salaryType, (department == null) ? null : department.getId());
     }
 
     @Override
@@ -48,5 +48,12 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
         String SQL = "SELECT * FROM Employee ORDER BY id ASC";
         List<Employee> employees = jdbcTemplate.query(SQL, employeeMapper);
         return employees;
+    }
+
+    @Override
+    public Employee findEmployeeByPhoneNumber(String phoneNumber) {
+        String SQL = "SELECT * FROM Employee WHERE phoneNumber = ?";
+        Employee employee = jdbcTemplate.queryForObject(SQL, new Object[]{phoneNumber}, employeeMapper);
+        return employee;
     }
 }

@@ -16,4 +16,6 @@ public interface EmployeeRepository {
     void delete(Integer id);
 
     List<Employee> findAllEmployees();
+
+    Employee findEmployeeByPhoneNumber(String phoneNumber);
 }

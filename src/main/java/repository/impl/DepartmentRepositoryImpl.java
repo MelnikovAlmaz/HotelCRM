@@ -4,6 +4,7 @@ import entity.Department;
 import entity.Employee;
 import entity.Hotel;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import repository.DepartmentRepository;
@@ -21,7 +22,13 @@ public class DepartmentRepositoryImpl implements DepartmentRepository {
     @Override
     public Department findDepartmentById(Integer id) {
         String SQL = "SELECT * FROM Department WHERE id = ?";
-        Department department = jdbcTemplate.queryForObject(SQL, new Object[]{id}, departmentMapper);
+        Department department;
+        try {
+           department = jdbcTemplate.queryForObject(SQL, new Object[]{id}, departmentMapper);
+        }
+        catch (EmptyResultDataAccessException e){
+            department = null;
+        }
         return department;
     }
 
