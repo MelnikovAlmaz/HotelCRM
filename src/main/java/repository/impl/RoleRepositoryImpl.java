@@ -24,6 +24,13 @@ public class RoleRepositoryImpl implements RoleRepository {
     }
 
     @Override
+    public Role findRoleByName(String name) {
+        String SQL = "SELECT * FROM Role WHERE name = ?";
+        Role role = jdbcTemplate.queryForObject(SQL, new Object[]{name}, roleMapper);
+        return role;
+    }
+
+    @Override
     public void create(String name) {
         String SQL = "INSERT INTO Role (name) VALUES (?)";
         jdbcTemplate.update( SQL, name);

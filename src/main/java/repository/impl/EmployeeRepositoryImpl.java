@@ -26,9 +26,9 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     }
 
     @Override
-    public void create(String name, String phoneNumber, String password, Double salary, Boolean isFired, Role role, String salaryType, Department department) {
-        String SQL = "INSERT INTO Employee (name, phoneNumber, password, salary, isFired, roleId, salaryType, departmentId) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        jdbcTemplate.update(SQL, name, phoneNumber, password, salary, isFired, role.getId(), salaryType, department.getId());
+    public void create(String name, String phoneNumber, String password, Double salary, Role role, String salaryType, Department department) {
+        String SQL = "INSERT INTO Employee (name, phoneNumber, password, salary, roleId, salaryType, departmentId) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update(SQL, name, phoneNumber, password, salary, role.getId(), salaryType, department.getId());
     }
 
     @Override
