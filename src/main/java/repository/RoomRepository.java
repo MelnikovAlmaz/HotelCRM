@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface RoomRepository {
     Room findRoomById(Integer id);
-    void create(Integer number, Boolean isCleaned, Boolean isAvailable, Hotel hotel, RoomCategory category);
+    void create(Integer number, Hotel hotel, RoomCategory category);
     void update(Integer id, Integer number, Boolean isCleaned, Boolean isAvailable, Hotel hotel, RoomCategory category);
     void delete(Integer id);
     List<Room> findAllRooms();
