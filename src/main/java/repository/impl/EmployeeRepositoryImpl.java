@@ -33,7 +33,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
     @Override
     public void update(Integer id, String name, String phoneNumber, String password, Double salary, Boolean isFired, Role role, String salaryType, Department department) {
-        String SQL = "UPDATE Employee SET name = ? phoneNumber = ? password = ? salary = ? isFired = ? roleId = ? salaryType = ? departmentId = ? WHERE id = ?";
+        String SQL = "UPDATE Employee SET name = ?, phoneNumber = ?, password = ?, salary = ?, isFired = ?, roleId = ?, salaryType = ?, departmentId = ? WHERE id = ?";
         jdbcTemplate.update(SQL, name, phoneNumber, password, salary, isFired, role.getId(), salaryType, department.getId(), id);
     }
 

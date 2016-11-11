@@ -33,7 +33,7 @@ public class RoomRepositoryImpl implements RoomRepository {
 
     @Override
     public void update(Integer id, Integer number, Boolean isCleaned, Boolean isAvailable, Hotel hotel, RoomCategory category) {
-        String SQL = "UPDATE Room SET number = ? isCleaned = ? isAvailable = ? hotelId = ? categoryId = ? WHERE id = ?";
+        String SQL = "UPDATE Room SET number = ?, isCleaned = ?, isAvailable = ?, hotelId = ?, categoryId = ? WHERE id = ?";
         jdbcTemplate.update(SQL, number, isCleaned, isAvailable, hotel.getId(), category.getId(), id);
     }
 

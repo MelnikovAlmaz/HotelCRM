@@ -38,7 +38,7 @@ public class GuestRepositoryImpl implements GuestRepository {
 
     @Override
     public void update(Integer id, String name, String phoneNumber, String passport, String password) {
-        String SQL = "UPDATE Guest SET name = ? phoneNumber = ? passport = ? password = ? WHERE id = ?";
+        String SQL = "UPDATE Guest SET name = ?, phoneNumber = ?, passport = ?, password = ? WHERE id = ?";
         jdbcTemplate.update( SQL, name, phoneNumber, passport, password, id);
     }
 

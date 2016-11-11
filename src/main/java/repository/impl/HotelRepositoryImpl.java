@@ -44,7 +44,7 @@ public class HotelRepositoryImpl implements HotelRepository {
 
     @Override
     public void update(Integer id, String name, String phoneNumber, String address, String description, Employee employee, City city) {
-        String SQL = "UPDATE Hotel SET name = ?, phoneNumber = ?, address = ?, description = ? managerId = ?, cityId = ? WHERE id = ?";
+        String SQL = "UPDATE Hotel SET name = ?, phoneNumber = ?, address = ?, description = ?, managerId = ?, cityId = ? WHERE id = ?";
         jdbcTemplate.update( SQL, name, phoneNumber, address, description, employee.getId(), city.getId(), id);
     }
 
