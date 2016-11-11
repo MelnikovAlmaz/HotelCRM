@@ -13,7 +13,7 @@
                     <span>Hotel</span>
                 </div>
                 <div class="panel-body">
-                    <form method="post" action="/admin/entity/hotel/${hotel.id}">
+                    <form method="post" action="/admin/dashboard/hotel/${hotel.id}">
                         <label for="name">Name</label>
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>
@@ -26,6 +26,19 @@
                             <input type="text" class="form-control" name="phoneNumber" placeholder="Phone Number"
                                    value="${hotel.phoneNumber}">
                         </div>
+                        <div class="control-group ">
+                            <label class="control-label" for="">City</label>
+                            <div class="input-group input-margin">
+                                <select class="form-control" size="1" name="city">
+                                <#list cities as city>
+                                    <option
+                                        <#if hotel.city.id == city.id>selected</#if>
+                                        value="${city.id}">${city.name}
+                                    </option>
+                                </#list>
+                                </select>
+                            </div>
+                        </div>
                         <label for="address">Address</label>
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>
@@ -37,6 +50,7 @@
                             <span class="input-group-addon"></span>
                             <textarea class="form-control" name="description" placeholder="Description">${hotel.description}</textarea>
                         </div>
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                         <input type="submit" class="btn btn-success" value="Save">
                     </form>
                 </div>

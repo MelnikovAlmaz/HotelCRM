@@ -13,21 +13,21 @@
                 <tr>
                     <th>#</th>
                     <th>Name</th>
-                    <th>Phone Number</th>
-                    <th>Address</th>
-                    <th>Edit</th>
+                    <th>Beds</th>
+                    <th>Price</th>
+                    <th>View</th>
                 </tr>
                 </thead>
                 <tbody>
-                <#list hotels as hotel>
+                <#list roomcategories as roomcategory>
                 <tr>
-                    <td>${hotel.id}</td>
-                    <td>${hotel.name}</td>
-                    <td>${hotel.phoneNumber}</td>
-                    <td>${hotel.address}</td>
+                    <td>${roomcategory.id}</td>
+                    <td>${roomcategory.name}</td>
+                    <td>${roomcategory.beds}</td>
+                    <td>${roomcategory.price}</td>
                     <td>
-                        <a href="/admin/entity/hotel/${hotel.id}">
-                            <button class="btn btn-warning">Edit</button>
+                        <a href="/admin/entity/${hotel.id}/roomcategory/${roomcategory.id}">
+                            <button class="btn btn-warning">View</button>
                         </a>
                     </td>
                 </#list>

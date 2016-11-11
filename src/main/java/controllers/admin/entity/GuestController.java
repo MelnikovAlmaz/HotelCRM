@@ -15,7 +15,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping(value = "/admin/entity/guest")
-public class GuestManagementController {
+public class GuestController {
     @Autowired
     GuestService guestService;
     @Autowired

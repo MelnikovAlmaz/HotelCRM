@@ -9,4 +9,6 @@ public interface RoomCategoryService {
     List<RoomCategory> findAllRoomCategories();
     void save(RoomCategory roomCategory);
     void delete(RoomCategory roomCategory);
+
+    List<RoomCategory> findAllRoomCategoriesByHotelId(Integer hotelId);
 }

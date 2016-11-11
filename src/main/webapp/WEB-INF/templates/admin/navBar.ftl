@@ -14,7 +14,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <#if user??>
                     <li><a href="/admin/dashboard"><span class="btn btn-default">${user.name}</span></a></li>
-                    <li><a href="#"><span class="btn btn-default">LogOut</span></a></li>
+                    <li><a href="/j_spring_security_logout"><span class="btn btn-default">LogOut</span></a></li>
                 <#else>
                     <li><a href="/admin/login"><span class="btn btn-default">LogIn</span></a></li>
                     <li><a href="/admin/signUp"><span class="btn btn-success">SignUp</span></a></li>
