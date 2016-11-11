@@ -23,6 +23,7 @@
                 username-parameter="phoneNumber"
                 password-parameter="password"
         />
+        <logout logout-success-url="/admin/login"/>
         <http-basic/>
         <headers/>
         <csrf/>
