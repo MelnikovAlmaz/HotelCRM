@@ -41,6 +41,7 @@ public class AdminController {
         Employee employee = getPrincipal();
         List<Hotel> hotels = hotelService.findHotelsByManagerId(employee.getId());
 
+        model.addAttribute("user", employee);
         model.addAttribute("hotels", hotels);
         return "admin/administrator/admin_main";
     }
@@ -72,12 +73,15 @@ public class AdminController {
             employee.setRole(role);
             employeeService.save(employee);
         }
-        return "redirect:/login";
+        return "redirect:/admin/login";
     }
 
     @RequestMapping(value = "/dashboard/hotel/new", method = RequestMethod.GET)
     public String newHotel(Model model) {
+        Employee employee =  getPrincipal();
         List<City> cities = cityService.findAllCities();
+
+        model.addAttribute("user", employee);
         model.addAttribute("cities", cities);
         return "admin/administrator/hotelAdd";
     }
@@ -101,10 +105,10 @@ public class AdminController {
             hotel.setDescription(description);
             hotelService.save(hotel);
 
-            return "redirect:/dashboard";
+            return "redirect:/admin/dashboard";
         }
         else {
-            return "redirect:/dashboard/hotel/new";
+            return "redirect:/admin/dashboard/hotel/new";
         }
     }
 

@@ -12,5 +12,6 @@
         <input type="number" step="1" class="form-control" name="guestNumber" style="width: 100px"
                placeholder="Guests">
     </div>
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     <button type="submit" class="btn btn-success">Search</button>
 </form>
