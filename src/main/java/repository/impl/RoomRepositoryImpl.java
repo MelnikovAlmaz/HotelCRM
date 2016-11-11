@@ -26,14 +26,14 @@ public class RoomRepositoryImpl implements RoomRepository {
     }
 
     @Override
-    public void create(Integer number, Boolean isCleaned, Boolean isAvailable, Hotel hotel, RoomCategory category) {
-        String SQL = "INSERT INTO Room (number, isCleaned, isAvailable, hotelId, categoryId) VALUES (?, ?, ?, ?, ?)";
-        jdbcTemplate.update(SQL, number, isCleaned, isAvailable, hotel.getId(), category.getId());
+    public void create(Integer number, Hotel hotel, RoomCategory category) {
+        String SQL = "INSERT INTO Room (number, hotelId, roomcategoryId) VALUES (?, ?, ?)";
+        jdbcTemplate.update(SQL, number, hotel.getId(), category.getId());
     }
 
     @Override
     public void update(Integer id, Integer number, Boolean isCleaned, Boolean isAvailable, Hotel hotel, RoomCategory category) {
-        String SQL = "UPDATE Room SET number = ?, isCleaned = ?, isAvailable = ?, hotelId = ?, categoryId = ? WHERE id = ?";
+        String SQL = "UPDATE Room SET number = ?, isCleaned = ?, isAvailable = ?, hotelId = ?, roomcategoryId = ? WHERE id = ?";
         jdbcTemplate.update(SQL, number, isCleaned, isAvailable, hotel.getId(), category.getId(), id);
     }
 

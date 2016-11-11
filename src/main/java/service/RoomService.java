@@ -9,4 +9,6 @@ public interface RoomService {
     List<Room> findAllRooms();
     void save(Room room);
     void delete(Room room);
+
+    List<Room> findAllRoomsByHotelId(Integer hotelId);
 }

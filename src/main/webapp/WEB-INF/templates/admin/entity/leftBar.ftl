@@ -3,6 +3,8 @@
         <a href="/admin/entity/${hotel.id}/roomcategory">
             <li class="list-group-item">Room Category</li>
         </a>
-        <li class="list-group-item">Room</li>
+        <a href="/admin/entity/${hotel.id}/room">
+            <li class="list-group-item">Room</li>
+        </a>
     </ul>
 </aside>
