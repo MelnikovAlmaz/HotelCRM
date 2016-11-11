@@ -12,7 +12,13 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Link</a></li>
+                <#if user??>
+                    <li><a href="/admin/dashboard"><span class="btn btn-default">${user.name}</span></a></li>
+                    <li><a href="#"><span class="btn btn-default">LogOut</span></a></li>
+                <#else>
+                    <li><a href="/admin/login"><span class="btn btn-default">LogIn</span></a></li>
+                    <li><a href="/admin/signUp"><span class="btn btn-success">SignUp</span></a></li>
+                </#if>
             </ul>
         </div>
     </div>

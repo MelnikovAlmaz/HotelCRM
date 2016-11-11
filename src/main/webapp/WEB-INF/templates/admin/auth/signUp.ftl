@@ -6,7 +6,7 @@
 <#include "../navBar.ftl">
 <div class="container">
     <div class="row">
-        <main class="col-lg-offset-2 col-lg-7">
+        <main class="col-lg-offset-4 col-lg-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <span>Registration</span>
