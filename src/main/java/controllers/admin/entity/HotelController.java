@@ -14,7 +14,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping(value = "/admin/entity/hotel")
-public class HotelManagementController {
+public class HotelController {
     @Autowired
     HotelService hotelService;
 

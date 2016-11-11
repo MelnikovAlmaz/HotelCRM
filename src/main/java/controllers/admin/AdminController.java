@@ -9,6 +9,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -76,6 +77,18 @@ public class AdminController {
         return "redirect:/admin/login";
     }
 
+    @RequestMapping(value = "/dashboard/hotel/{id}", method = RequestMethod.GET)
+    public String hotel(Model model, @PathVariable(value = "id") Integer hotelId) {
+        Employee employee =  getPrincipal();
+        List<City> cities = cityService.findAllCities();
+        Hotel hotel = hotelService.findHotelById(hotelId);
+
+        model.addAttribute("hotel", hotel);
+        model.addAttribute("user", employee);
+        model.addAttribute("cities", cities);
+        return "admin/entity/hotel/hotel";
+    }
+
     @RequestMapping(value = "/dashboard/hotel/new", method = RequestMethod.GET)
     public String newHotel(Model model) {
         Employee employee =  getPrincipal();
@@ -117,7 +130,7 @@ public class AdminController {
         return "redirect:/admin/entity/hotels";
     }
 
-    private Employee getPrincipal(){
+    public static Employee getPrincipal(){
         Employee employee = (Employee) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return employee;
     }

@@ -26,8 +26,8 @@
                     <td>${hotel.phoneNumber}</td>
                     <td>${hotel.address}</td>
                     <td>
-                        <a href="/admin/entity/hotel/${hotel.id}">
-                            <button class="btn btn-warning">Edit</button>
+                        <a href="/admin/dashboard/hotel/${hotel.id}">
+                            <button class="btn btn-warning">View</button>
                         </a>
                     </td>
                 </#list>
