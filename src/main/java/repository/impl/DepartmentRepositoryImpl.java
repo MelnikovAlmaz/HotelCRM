@@ -34,14 +34,14 @@ public class DepartmentRepositoryImpl implements DepartmentRepository {
 
     @Override
     public void create(String name, Employee manager, Hotel hotel) {
-        String SQL = "INSERT INTO Department (name) VALUES (?)";
-        jdbcTemplate.update( SQL, name);
+        String SQL = "INSERT INTO Department (name, managerId, hotelId) VALUES (?, ?, ?)";
+        jdbcTemplate.update( SQL, name, (manager != null) ? manager.getId() : null, hotel.getId());
     }
 
     @Override
     public void update(Integer id, String name, Employee manager, Hotel hotel) {
         String SQL = "UPDATE Department SET name = ?, managerId = ?, hotelId = ? WHERE id = ?";
-        jdbcTemplate.update( SQL, name, id, manager.getId(), hotel.getId());
+        jdbcTemplate.update( SQL, name, id, (manager != null) ? manager.getId() : null, hotel.getId());
     }
 
     @Override

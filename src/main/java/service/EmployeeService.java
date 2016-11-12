@@ -9,4 +9,6 @@ public interface EmployeeService {
     List<Employee> findAllEmployees();
     void save(Employee employee);
     void delete(Employee employee);
+
+    List<Employee> findAllEmployeesByHotelId(Integer hotelId);
 }
