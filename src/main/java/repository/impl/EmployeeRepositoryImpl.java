@@ -26,15 +26,15 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     }
 
     @Override
-    public void create(String name, String phoneNumber, String password, Double salary, Role role, String salaryType, Department department) {
+    public void create(String name, String phoneNumber, String password, Double salary, Role role, String salaryType, Integer department) {
         String SQL = "INSERT INTO Employee (name, phoneNumber, password, salary, roleId, salaryType, departmentId) VALUES (?, ?, ?, ?, ?, ?, ?)";
-        jdbcTemplate.update(SQL, name, phoneNumber, password, salary, role.getId(), salaryType, (department == null) ? null : department.getId());
+        jdbcTemplate.update(SQL, name, phoneNumber, password, salary, role.getId(), salaryType, department);
     }
 
     @Override
-    public void update(Integer id, String name, String phoneNumber, String password, Double salary, Boolean isFired, Role role, String salaryType, Department department) {
+    public void update(Integer id, String name, String phoneNumber, String password, Double salary, Boolean isFired, Role role, String salaryType, Integer department) {
         String SQL = "UPDATE Employee SET name = ?, phoneNumber = ?, password = ?, salary = ?, isFired = ?, roleId = ?, salaryType = ?, departmentId = ? WHERE id = ?";
-        jdbcTemplate.update(SQL, name, phoneNumber, password, salary, isFired, role.getId(), salaryType, department.getId(), id);
+        jdbcTemplate.update(SQL, name, phoneNumber, password, salary, isFired, role.getId(), salaryType, department, id);
     }
 
     @Override

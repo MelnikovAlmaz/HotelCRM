@@ -11,7 +11,7 @@ public class Employee implements Serializable{
     private Boolean isFired;
     private Role role;
     private String salaryType;
-    private Department department;
+    private Integer departmentId;
 
     public Integer getId() {
         return id;
@@ -77,11 +77,11 @@ public class Employee implements Serializable{
         this.salaryType = salaryType;
     }
 
-    public Department getDepartment() {
-        return department;
+    public Integer getDepartmentId() {
+        return departmentId;
     }
 
-    public void setDepartment(Department department) {
-        this.department = department;
+    public void setDepartmentId(Integer departmentId) {
+        this.departmentId = departmentId;
     }
 }

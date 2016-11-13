@@ -48,9 +48,11 @@ public class EmployeeController {
         Hotel hotel = hotelService.findHotelById(hotelId);
         Employee employee = employeeService.findEmployeeById(id);
         Employee user = AdminController.getPrincipal();
+        Department employeeDepartment = departmentService.findDepartmentById(employee.getDepartmentId());
         List<Role> roles = roleService.findAllRoles();
         List<Department> departments = departmentService.findAllDepartmentsByHotelId(hotelId);
 
+        model.addAttribute("employeeDepartment", employeeDepartment);
         model.addAttribute("departments", departments);
         model.addAttribute("roles", roles);
         model.addAttribute("user", user);
@@ -65,7 +67,7 @@ public class EmployeeController {
                            @RequestParam String phoneNumber,
                            @RequestParam String password,
                            @RequestParam(value = "role") Integer roleId,
-                           @RequestParam(value = "department") Integer departmentId,
+                           @RequestParam(value = "departmentId") Integer departmentId,
                            @RequestParam Double salary,
                            @RequestParam String salaryType) {
         try {
@@ -78,8 +80,7 @@ public class EmployeeController {
             employee.setSalaryType(salaryType);
             Role role = roleService.findRoleById(roleId);
             employee.setRole(role);
-            Department department = departmentService.findDepartmentById(departmentId);
-            employee.setDepartment(department);
+            employee.setDepartmentId(departmentId);
             employeeService.save(employee);
 
             model.addAttribute("isSuccess", true);
@@ -111,7 +112,7 @@ public class EmployeeController {
                               @RequestParam String phoneNumber,
                               @RequestParam String password,
                               @RequestParam(value = "role") Integer roleId,
-                              @RequestParam(value = "department") Integer departmentId,
+                              @RequestParam(value = "departmentId") Integer departmentId,
                               @RequestParam Double salary,
                               @RequestParam String salaryType) {
         try {
@@ -123,8 +124,7 @@ public class EmployeeController {
             employee.setSalaryType(salaryType);
             Role role = roleService.findRoleById(roleId);
             employee.setRole(role);
-            Department department = departmentService.findDepartmentById(departmentId);
-            employee.setDepartment(department);
+            employee.setDepartmentId(departmentId);
             employeeService.save(employee);
 
             model.addAttribute("isSuccess", true);

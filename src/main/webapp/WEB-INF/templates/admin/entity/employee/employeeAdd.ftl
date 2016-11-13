@@ -53,7 +53,7 @@
                         <div class="control-group ">
                             <label class="control-label" for="department">Department</label>
                             <div class="input-group input-margin">
-                                <select class="form-control" size="1" name="department">
+                                <select class="form-control" size="1" name="departmentId">
                                 <#list departments as department>
                                     <option value="${department.id}">${department.name}</option>
                                 </#list>
