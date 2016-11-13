@@ -10,30 +10,25 @@
         <main class="col-lg-7">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <span>Room</span>
+                    <span>Department</span>
                 </div>
                 <div class="panel-body">
-                    <form method="post" action="/admin/entity/${hotel.id}/room/${room.id}">
-                        <label for="number">Number</label>
+                    <form method="post" action="/admin/entity/${hotel.id}/department/${department.id}">
+                        <label for="name">Name</label>
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>
-                            <input type="text" class="form-control" name="number" placeholder="Number"
-                                   value=${room.number}>
+                            <input type="text" class="form-control" name="name" placeholder="Name"
+                                   value=${department.name}>
                         </div>
-                        <label for="isCleaned">Cleaned</label>
-                        <input type="checkbox" name="isCleaned"<#if room.cleaned>checked</#if>>
-
-                        <label for="isAvailable">Available</label>
-                        <input type="checkbox" name="isAvailable" <#if room.available>checked</#if>>
-
                         <div class="control-group ">
-                            <label class="control-label" for="">Room Category</label>
+                            <label class="control-label" for="">Manager</label>
                             <div class="input-group input-margin">
-                                <select class="form-control" size="1" name="category">
-                                <#list categories as category>
+                                <select class="form-control" size="1" name="manager">
+                                <#list employees as employee>
                                     <option
-                                        <#if room.category.id == category.id>selected</#if>
-                                        value="${category.id}">${category.name}</option>
+                                        <#if department.manager??>
+                                        <#if department.manager.id == employee.id>selected</#if></#if>
+                                        value="${employee.id}">${employee.name} - ${employee.role.name}</option>
                                 </#list>
                                 </select>
                             </div>

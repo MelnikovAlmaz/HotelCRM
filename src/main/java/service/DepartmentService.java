@@ -9,4 +9,6 @@ public interface DepartmentService {
     List<Department> findAllDepartments();
     void save(Department department);
     void delete(Department department);
+
+    List<Department> findAllDepartmentsByHotelId(Integer hotelId);
 }

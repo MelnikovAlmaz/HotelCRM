@@ -26,7 +26,10 @@ public class DepartmentMapper implements RowMapper<Department> {
         department.setName(resultSet.getString("name"));
         Hotel hotel = hotelRepository.findHotelById(resultSet.getInt("hotelId"));
         department.setHotel(hotel);
-        Employee manager = employeeRepository.findEmployeeById(resultSet.getInt("managerId"));
+        Employee manager = null;
+        if(resultSet.getInt("managerId") != 0) {
+           manager = employeeRepository.findEmployeeById(resultSet.getInt("managerId"));
+        }
         department.setManager(manager);
         return department;
     }
