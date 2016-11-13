@@ -13,12 +13,12 @@
                     <span>Department</span>
                 </div>
                 <div class="panel-body">
-                    <form method="post" action="/admin/entity/${hotel.id}/department/${department.id}">
+                    <form method="post" action="/admin/entity/${hotel.id}/employee/${employee.id}">
                         <label for="name">Name</label>
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>
                             <input type="text" class="form-control" name="name" placeholder="Name"
-                                   value=${department.name}>
+                                   value=${employee.name}>
                         </div>
                         <div class="control-group ">
                             <label class="control-label" for="">Manager</label>
@@ -26,7 +26,7 @@
                                 <select class="form-control" size="1" name="category">
                                 <#list employees as employee>
                                     <option
-                                        <#if department.manager.id == employee.id>selected</#if>
+                                        <#if employee.manager.id == employee.id>selected</#if>
                                         value="${employee.id}">${employee.name} - ${employee.role.name}</option>
                                 </#list>
                                 </select>

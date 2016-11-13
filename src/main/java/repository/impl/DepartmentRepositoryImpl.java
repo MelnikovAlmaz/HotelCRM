@@ -41,7 +41,7 @@ public class DepartmentRepositoryImpl implements DepartmentRepository {
     @Override
     public void update(Integer id, String name, Employee manager, Hotel hotel) {
         String SQL = "UPDATE Department SET name = ?, managerId = ?, hotelId = ? WHERE id = ?";
-        jdbcTemplate.update( SQL, name, id, (manager != null) ? manager.getId() : null, hotel.getId());
+        jdbcTemplate.update( SQL, name, (manager != null) ? manager.getId() : null, hotel.getId(), id);
     }
 
     @Override

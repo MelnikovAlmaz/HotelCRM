@@ -23,10 +23,11 @@
                         <div class="control-group ">
                             <label class="control-label" for="">Manager</label>
                             <div class="input-group input-margin">
-                                <select class="form-control" size="1" name="category">
+                                <select class="form-control" size="1" name="manager">
                                 <#list employees as employee>
                                     <option
-                                        <#if department.manager.id == employee.id>selected</#if>
+                                        <#if department.manager??>
+                                        <#if department.manager.id == employee.id>selected</#if></#if>
                                         value="${employee.id}">${employee.name} - ${employee.role.name}</option>
                                 </#list>
                                 </select>

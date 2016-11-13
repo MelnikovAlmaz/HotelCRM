@@ -13,12 +13,7 @@
                     <span>New Employee</span>
                 </div>
                 <div class="panel-body">
-                    <form method="post" action="/admin/entity/${hotel.id}/department/new">
-                        <label for="name">Name</label>
-                        <div class="input-group input-margin">
-                            <span class="input-group-addon"></span>
-                            <input type="text" class="form-control" name="name" placeholder="Name">
-                        </div>
+                    <form method="post" action="/admin/entity/${hotel.id}/employee/new">
                         <label for="name">Name</label>
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>
