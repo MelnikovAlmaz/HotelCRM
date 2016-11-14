@@ -47,4 +47,11 @@ public class GuestRepositoryImpl implements GuestRepository {
         String SQL = "DELETE FROM Guest WHERE id = ?";
         jdbcTemplate.update( SQL, id);
     }
+
+    @Override
+    public Guest findGuestByPhoneNumber(String phoneNumber) {
+        String SQL = "SELECT * FROM Guest WHERE phoneNumber = ?";
+        Guest guest = jdbcTemplate.queryForObject(SQL, new Object[]{phoneNumber}, guestMapper);
+        return guest;
+    }
 }

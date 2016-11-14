@@ -49,4 +49,11 @@ public class RoomRepositoryImpl implements RoomRepository {
         List<Room> rooms = jdbcTemplate.query(SQL, roomMapper);
         return rooms;
     }
+
+    @Override
+    public List<Room> findAllRoomsByCategoryId(Integer roomCategoryId) {
+        String SQL = "SELECT * FROM Room WHERE roomCategoryId = ? ORDER BY number ASC";
+        List<Room> rooms = jdbcTemplate.query(SQL, new Object[]{roomCategoryId}, roomMapper);
+        return rooms;
+    }
 }

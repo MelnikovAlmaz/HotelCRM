@@ -20,6 +20,12 @@ public class GuestServiceImpl implements GuestService {
     }
 
     @Override
+    public Guest findGuestByPhoneNumber(String phoneNumber) {
+        Guest guest = guestRepository.findGuestByPhoneNumber(phoneNumber);
+        return guest;
+    }
+
+    @Override
     public List<Guest> findAllGuests() {
         List<Guest> guests = guestRepository.findAllGuests();
         return guests;

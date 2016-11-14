@@ -12,4 +12,6 @@ public interface RoomRepository {
     void update(Integer id, Integer number, Boolean isCleaned, Boolean isAvailable, Hotel hotel, RoomCategory category);
     void delete(Integer id);
     List<Room> findAllRooms();
+
+    List<Room> findAllRoomsByCategoryId(Integer roomCategoryId);
 }

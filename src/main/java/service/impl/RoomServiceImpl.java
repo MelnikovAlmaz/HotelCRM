@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import repository.RoomRepository;
 import service.RoomService;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -51,5 +52,18 @@ public class RoomServiceImpl implements RoomService{
             }
         }
         return roomsByHotelId;
+    }
+
+    @Override
+    public Room findFreeRoomForRoomCategory(Integer roomCategoryId) {
+        Room freeRoom = null;
+        List<Room> rooms = roomRepository.findAllRoomsByCategoryId(roomCategoryId);
+        for (Room room: rooms){
+            if(room.getAvailable()) {
+                freeRoom = room;
+                break;
+            }
+        }
+        return freeRoom;
     }
 }

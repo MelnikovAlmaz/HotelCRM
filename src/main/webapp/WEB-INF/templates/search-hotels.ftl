@@ -28,7 +28,9 @@
                 <span>${hotel.price}</span>
             </div>
             <div>
-                <button class="btn btn-warning">Order</button>
+                <a href="/search/${hotel.id}?beginDate=${beginDate}&endDate=${endDate}&guestNumber=${guestNumber}">
+                    <button class="btn btn-warning">Order</button>
+                </a>
             </div>
         </div>
         <div class="col-xs-5">

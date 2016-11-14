@@ -9,7 +9,7 @@
         <a href="/admin/entity/${hotel.id}/roomcategory">
             <li class="list-group-item">Room Category</li>
         </a>
-        <a href="/admin/entity/${hotel.id}/room">
+        <a href="/admin/entity/${hotel.id}/roomCategory">
             <li class="list-group-item">Room</li>
         </a>
     </ul>
