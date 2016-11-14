@@ -7,11 +7,7 @@
     <section class="login-header"><br></section>
     <section class="container-fluid">
         <div class="container nav-section col-xs-offset-2 col-xs-9">
-            <ul class="nav navbar-nav">
-                <li>
-                    <h3>Hotel world</h3>
-                </li>
-            </ul>
+
         <#include "search-navbar-form.ftl">
         </div>
     </section>
@@ -28,9 +24,7 @@
                 <span>${hotel.price}</span>
             </div>
             <div>
-                <a href="/search/${hotel.id}?beginDate=${beginDate}&endDate=${endDate}&guestNumber=${guestNumber}">
-                    <button class="btn btn-warning">Order</button>
-                </a>
+                <button class="btn btn-warning">Choose room</button>
             </div>
         </div>
         <div class="col-xs-5">

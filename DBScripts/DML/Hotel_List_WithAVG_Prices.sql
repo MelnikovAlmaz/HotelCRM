@@ -3,10 +3,10 @@ returns table (id integer, "name" varchar(100), phonenumber char(11), address va
 begin
 return query
 select * ,
-    (select avg(cost) from 
+    (select avg(rc.price) from
         ((select * from room where h.id = hotelid) as r 
          inner join 
-        (select roomcategory.id, roomcategory.cost from roomcategory where bednumber = guestNumber) as rc on rc.id = r.categoryid)
+        (select roomcategory.id, roomcategory.price from roomcategory where beds = guestNumber) as rc on rc.id = r.id)
     )as price
 from hotel as h where h.name like pattern;
 end;
