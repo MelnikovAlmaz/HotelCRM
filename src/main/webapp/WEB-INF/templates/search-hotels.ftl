@@ -3,18 +3,11 @@
 <#include "head.ftl">
 </head>
 <body>
-<header>
-    <section class="login-header"><br></section>
-    <section class="container-fluid">
-        <div class="container nav-section col-xs-offset-2 col-xs-9">
+
+<#include "main-header.ftl">
 
         <#include "search-navbar-form.ftl">
-        </div>
-    </section>
-    <section class="filter-line">
-        <span>H</span>
-    </section>
-</header>
+
 <main class="main">
 <#list hotels as hotel>
     <div class="container-fluid row col-lg-8 col-lg-offset-2 col-xs-12 search-hotel-block padding0"
