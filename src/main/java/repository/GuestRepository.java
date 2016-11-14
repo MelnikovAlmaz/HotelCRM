@@ -15,4 +15,6 @@ public interface GuestRepository {
     void update(Integer id, String name, String phoneNumber, String passport, String password);
 
     void delete(Integer id);
+
+    Guest findGuestByPhoneNumber(String phoneNumber);
 }
