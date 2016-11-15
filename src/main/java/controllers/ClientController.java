@@ -1,8 +1,6 @@
 package controllers;
 
-import entity.Employee;
 import entity.Guest;
-import entity.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -19,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @Controller
 @RequestMapping(value = "/guest")
-public class GuestController {
+public class ClientController {
     @Autowired
     private GuestService guestService;
 
@@ -47,8 +45,14 @@ public class GuestController {
         }
         return "redirect:/";
     }
+
     public static Guest getPrincipal() {
-        Guest guest = (Guest) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Guest guest = null;
+        try {
+            guest = (Guest) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        } catch (NullPointerException | ClassCastException e) {
+            e.printStackTrace();
+        }
         return guest;
     }
 }
