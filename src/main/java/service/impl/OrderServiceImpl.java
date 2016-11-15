@@ -29,10 +29,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void save(Order order) {
-        if(order.getId() == null){
+        if (order.getId() == null) {
             orderRepository.create(order.getBeginDate(), order.getEndDate(), order.getPrice(), order.getGuest(), order.getRoom());
-        }
-        else {
+        } else {
             orderRepository.update(order.getId(), order.getBeginDate(), order.getEndDate(), order.getPrice(), order.getGuest(), order.getRoom());
         }
     }
@@ -43,20 +42,14 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<Order> findOrdersOfUser(Guest guest)
-    {
-        List<Order> orders = findAllOrders();
-
-        List<Order> usersOrders = new ArrayList<>();
-
-        for(Order o: orders)
-        {
-            if(o.getGuest().getId().compareTo(guest.getId())==0)
-            {
-                usersOrders.add(o);
-            }
+    public List<Order> findOrdersByGuest(Guest guest) {
+        try {
+            List<Order> orders = orderRepository.findOrdersByGuestId(guest.getId());
+            return orders;
+        }
+        catch (NullPointerException e){
+            return null;
         }
 
-        return usersOrders;
     }
 }

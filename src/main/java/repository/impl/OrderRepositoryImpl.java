@@ -50,4 +50,11 @@ public class OrderRepositoryImpl implements OrderRepository {
         List<Order> orders = jdbcTemplate.query(SQL, orderMapper);
         return orders;
     }
+
+    @Override
+    public List<Order> findOrdersByGuestId(Integer id) {
+        String SQL = "SELECT * FROM \"Order\" WHERE guestId = ?";
+        List<Order> orders = jdbcTemplate.query(SQL, new Object[]{id}, orderMapper);
+        return orders;
+    }
 }

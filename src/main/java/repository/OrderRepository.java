@@ -17,4 +17,6 @@ public interface OrderRepository {
     void delete(Integer id);
 
     List<Order> findAllOrders();
+
+    List<Order> findOrdersByGuestId(Integer id);
 }

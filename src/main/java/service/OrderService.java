@@ -10,5 +10,5 @@ public interface OrderService {
     List<Order> findAllOrders();
     void save(Order order);
     void delete(Order order);
-    List<Order> findOrdersOfUser(Guest guest);
+    List<Order> findOrdersByGuest(Guest guest);
 }

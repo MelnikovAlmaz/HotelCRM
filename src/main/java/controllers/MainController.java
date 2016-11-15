@@ -34,7 +34,7 @@ public class MainController {
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String mainPage(ModelMap model) {
         Guest guest = ClientController.getPrincipal();
-        List<Order> orders = orderService.findOrdersOfUser(guest);
+        List<Order> orders = orderService.findOrdersByGuest(guest);
         model.addAttribute("user", guest);
         model.addAttribute("myOrders", orders);
         return "main";
@@ -53,7 +53,8 @@ public class MainController {
                                  @RequestParam(value = "guestNumber") Integer guestNumber) {
         List<HotelInfo> hotels = hotelService.findHotelInfo(name, LocalDate.parse(beginDate), LocalDate.parse(endDate), guestNumber);
         Guest guest = ClientController.getPrincipal();
-
+        List<Order> orders = orderService.findOrdersByGuest(guest);
+        model.addAttribute("myOrders", orders);
         model.addAttribute("user", guest);
         model.addAttribute("name", name);
         model.addAttribute("beginDate", beginDate);
@@ -73,7 +74,8 @@ public class MainController {
         List<RoomCategory> roomCategories = roomCategoryService.findAllRoomCategoriesByHotelId(hotelId);
         Guest guest = ClientController.getPrincipal();
         Hotel hotel = hotelService.findHotelById(hotelId);
-
+        List<Order> orders = orderService.findOrdersByGuest(guest);
+        model.addAttribute("myOrders", orders);
         model.addAttribute("user", guest);
         model.addAttribute("hotel", hotel);
         model.addAttribute("roomCategories", roomCategories);
@@ -85,6 +87,7 @@ public class MainController {
 
     @RequestMapping(value = "/search/{id}", method = RequestMethod.POST)
     public String orderPost(ModelMap model,
+                            @PathVariable(value = "id") Integer hotelId,
                             @RequestParam(value = "roomCategory") Integer roomCategoryId,
                             @RequestParam(value = "beginDate") String beginDate,
                             @RequestParam(value = "endDate") String endDate,
@@ -125,6 +128,12 @@ public class MainController {
             orderService.save(order);
         } catch (Exception e) {
         } finally {
+            Hotel hotel = hotelService.findHotelById(hotelId);
+            List<RoomCategory> roomCategories = roomCategoryService.findAllRoomCategoriesByHotelId(hotelId);
+            List<Order> orders = orderService.findOrdersByGuest(guest);
+            model.addAttribute("myOrders", orders);
+            model.addAttribute("roomCategories", roomCategories);
+            model.addAttribute("hotel", hotel);
             model.addAttribute("user", guest);
             model.addAttribute("beginDate", beginDate);
             model.addAttribute("endDate", endDate);

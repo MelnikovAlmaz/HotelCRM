@@ -54,11 +54,11 @@
                     <h4 class="modal-title" id="myModalLabel">Orders</h4>
                 </div>
                 <div class="modal-body">
-
-                    <#list myOrders as order>
-                        <p>${order.id}</p>
-                    </#list>
-
+                    <#if myOrders??>
+                        <#list myOrders as order>
+                            <h3>${order.id}</h3>
+                        </#list>
+                    </#if>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
