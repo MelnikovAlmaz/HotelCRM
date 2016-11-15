@@ -32,7 +32,7 @@ public class OrderServiceImpl implements OrderService {
         if (order.getId() == null) {
             orderRepository.create(order.getBeginDate(), order.getEndDate(), order.getPrice(), order.getGuest(), order.getRoom());
         } else {
-            orderRepository.update(order.getId(), order.getBeginDate(), order.getEndDate(), order.getPrice(), order.getGuest(), order.getRoom());
+            orderRepository.update(order.getId(), order.getBeginDate(), order.getEndDate(), order.getPrice(), order.getGuest(), order.getRoom(), order.getArived());
         }
     }
 

@@ -12,7 +12,7 @@ public interface OrderRepository {
 
     void create(Date beginDate, Date endDate, Double price, Guest guest, Room room);
 
-    void update(Integer id, Date beginDate, Date endDate, Double price, Guest guest, Room room);
+    void update(Integer id, Date beginDate, Date endDate, Double price, Guest guest, Room room, Boolean isArived);
 
     void delete(Integer id);
 

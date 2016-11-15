@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import repository.RoomCategoryRepository;
 import service.RoomCategoryService;
 
+import java.sql.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -51,5 +52,11 @@ public class RoomCategoryServiceImpl implements RoomCategoryService {
             }
         }
         return roomCategoriesByHotelId;
+    }
+
+    @Override
+    public List<RoomCategory> findAvailableRoomCategoriesByHotelIdInPeriod(Integer hotelId, Date startDate, Date finishDate) {
+        List<RoomCategory> roomCategories = roomCategoryRepository.findAvailableRoomCategoriesByHotelIdInPeriod(hotelId, startDate, finishDate);
+        return roomCategories;
     }
 }

@@ -2,6 +2,7 @@ package service;
 
 import entity.RoomCategory;
 
+import java.sql.Date;
 import java.util.List;
 
 public interface RoomCategoryService {
@@ -11,4 +12,6 @@ public interface RoomCategoryService {
     void delete(RoomCategory roomCategory);
 
     List<RoomCategory> findAllRoomCategoriesByHotelId(Integer hotelId);
+
+    List<RoomCategory> findAvailableRoomCategoriesByHotelIdInPeriod(Integer hotelId, Date startDate, Date finishDate);
 }

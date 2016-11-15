@@ -31,6 +31,7 @@ public class OrderMapper implements RowMapper<Order> {
         order.setRoom(room);
         Guest guest = guestRepository.findGuestById(resultSet.getInt("guestId"));
         order.setGuest(guest);
+        order.setArived(resultSet.getBoolean("isArived"));
         return order;
     }
 }

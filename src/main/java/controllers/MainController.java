@@ -70,8 +70,10 @@ public class MainController {
                            @RequestParam(value = "beginDate") String beginDate,
                            @RequestParam(value = "endDate") String endDate,
                            @RequestParam(value = "guestNumber") Integer guestNumber) {
-        //TODO free roomCategories by guestNumber
-        List<RoomCategory> roomCategories = roomCategoryService.findAllRoomCategoriesByHotelId(hotelId);
+        Date startDate = Date.valueOf(LocalDate.parse(beginDate));
+        Date finishDate = Date.valueOf(LocalDate.parse(endDate));
+
+        List<RoomCategory> roomCategories = roomCategoryService.findAvailableRoomCategoriesByHotelIdInPeriod(hotelId, startDate, finishDate);
         Guest guest = ClientController.getPrincipal();
         Hotel hotel = hotelService.findHotelById(hotelId);
         List<Order> orders = orderService.findOrdersByGuest(guest);

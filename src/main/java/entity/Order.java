@@ -12,6 +12,7 @@ public class Order {
     private Date endDate;
     private Timestamp orderTime;
     private Double price;
+    private Boolean isArived;
     private Guest guest;
     private Room room;
 
@@ -41,6 +42,14 @@ public class Order {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public Boolean getArived() {
+        return isArived;
+    }
+
+    public void setArived(Boolean arived) {
+        isArived = arived;
     }
 
     public Timestamp getOrderTime() {

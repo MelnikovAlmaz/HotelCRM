@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import repository.RoomCategoryRepository;
 import repository.mapper.RoomCategoryMapper;
 
+import java.sql.Date;
 import java.util.List;
 
 @Repository
@@ -46,6 +47,13 @@ public class RoomCategoryRepositoryImpl implements RoomCategoryRepository {
     public List<RoomCategory> findAllRoomCategories() {
         String SQL = "SELECT * FROM RoomCategory ORDER BY beds ASC";
         List<RoomCategory> roomCategories = jdbcTemplate.query(SQL, roomCategoryMapper);
+        return roomCategories;
+    }
+
+    @Override
+    public List<RoomCategory> findAvailableRoomCategoriesByHotelIdInPeriod(Integer hotelId, Date startDate, Date finishDate) {
+        String SQL = "SELECT * FROM available_roomCategories(?, ?, ?) ORDER BY beds ASC";
+        List<RoomCategory> roomCategories = jdbcTemplate.query(SQL, new Object[]{hotelId, startDate, finishDate}, roomCategoryMapper);
         return roomCategories;
     }
 }

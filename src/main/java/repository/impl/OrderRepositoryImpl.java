@@ -33,9 +33,9 @@ public class OrderRepositoryImpl implements OrderRepository {
     }
 
     @Override
-    public void update(Integer id, Date beginDate, Date endDate, Double price, Guest guest, Room room) {
-        String SQL = "UPDATE \"Order\" SET beginDate = ?, endDate = ?, price = ?, guestId = ?, roomId = ? WHERE id = ?";
-        jdbcTemplate.update(SQL, beginDate, endDate, price, guest.getId(), room.getId(), id);
+    public void update(Integer id, Date beginDate, Date endDate, Double price, Guest guest, Room room, Boolean isArived) {
+        String SQL = "UPDATE \"Order\" SET beginDate = ?, endDate = ?, price = ?, guestId = ?, roomId = ?, isArived = ? WHERE id = ?";
+        jdbcTemplate.update(SQL, beginDate, endDate, price, guest.getId(), room.getId(), isArived, id);
     }
 
     @Override
