@@ -21,7 +21,7 @@ public class OrderRepositoryImpl implements OrderRepository {
 
     @Override
     public Order findOrderById(Integer id) {
-        String SQL = "SELECT * FROM Order WHERE id = ?";
+        String SQL = "SELECT * FROM \"Order\" WHERE id = ?";
         Order order = jdbcTemplate.queryForObject(SQL, new Object[]{id}, orderMapper);
         return order;
     }
@@ -34,19 +34,19 @@ public class OrderRepositoryImpl implements OrderRepository {
 
     @Override
     public void update(Integer id, Date beginDate, Date endDate, Double price, Guest guest, Room room) {
-        String SQL = "UPDATE Order SET beginDate = ?, endDate = ?, price = ?, guestId = ?, roomId = ? WHERE id = ?";
+        String SQL = "UPDATE \"Order\" SET beginDate = ?, endDate = ?, price = ?, guestId = ?, roomId = ? WHERE id = ?";
         jdbcTemplate.update(SQL, beginDate, endDate, price, guest.getId(), room.getId(), id);
     }
 
     @Override
     public void delete(Integer id) {
-        String SQL = "DELETE FROM Order WHERE id = ?";
+        String SQL = "DELETE FROM \"Order\" WHERE id = ?";
         jdbcTemplate.update(SQL, id);
     }
 
     @Override
     public List<Order> findAllOrders() {
-        String SQL = "SELECT * FROM Order ORDER BY id ASC";
+        String SQL = "SELECT * FROM \"Order\" ORDER BY id ASC";
         List<Order> orders = jdbcTemplate.query(SQL, orderMapper);
         return orders;
     }

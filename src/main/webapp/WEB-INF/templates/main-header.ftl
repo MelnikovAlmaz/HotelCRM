@@ -9,7 +9,7 @@
                     <li><a href="#" data-toggle="modal" data-target="#orders">My orders</a></li>
                     <li><a href="#" data-toggle="modal" data-target="#proposals">Special proposals</a></li>
                     <li class="divider"></li>
-                    <li><a href="#" data-toggle="modal" data-target="#billingAddress">Log out</a></li>
+                    <li><a href="/guest/logout" data-toggle="modal" data-target="#billingAddress">Log out</a></li>
                 </ul>
             </div>
 
