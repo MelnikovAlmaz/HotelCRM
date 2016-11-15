@@ -28,7 +28,7 @@ public class OrderRepositoryImpl implements OrderRepository {
 
     @Override
     public void create(Date beginDate, Date endDate, Double price, Guest guest, Room room) {
-        String SQL = "INSERT INTO Order (beginDate, endDate, price, guestId, roomId) VALUES (?, ?, ?, ?, ?)";
+        String SQL = "INSERT INTO \"Order\" (beginDate, endDate, price, guestId, roomId) VALUES (?, ?, ?, ?, ?)";
         jdbcTemplate.update(SQL, beginDate, endDate, price, guest.getId(), room.getId());
     }
 
