@@ -12,7 +12,7 @@
                     <span>Login</span>
                 </div>
                 <div class="panel-body">
-                    <form method="post" action="/j_spring_security_check">
+                    <form method="post" action="/admin/j_spring_security_check">
                         <label for="phoneNumber">Phone Number</label>
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>

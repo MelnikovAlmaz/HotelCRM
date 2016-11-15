@@ -6,6 +6,13 @@ public class Guest {
     private String phoneNumber;
     private String passport;
     private String password;
+    private Role role;
+
+    public Guest() {
+        Role role = new Role();
+        role.setName("Guest");
+        this.role = role;
+    }
 
     public Integer getId() {
         return id;
@@ -45,5 +52,9 @@ public class Guest {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Role getRole() {
+        return role;
     }
 }

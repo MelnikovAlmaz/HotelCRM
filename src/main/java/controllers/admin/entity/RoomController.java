@@ -1,6 +1,5 @@
 package controllers.admin.entity;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import controllers.admin.AdminController;
 import entity.Employee;
 import entity.Hotel;
