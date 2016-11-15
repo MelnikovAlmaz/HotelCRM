@@ -6,10 +6,10 @@
             <div class="btn-group" style="padding-left: 10px">
                 <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">Profile <span class="caret"></span></button>
                 <ul class="dropdown-menu" role="menu">
+                    <li><a href="#" data-toggle="modal" data-target="#account">My account</a></li>
                     <li><a href="#" data-toggle="modal" data-target="#orders">My orders</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#proposals">Special proposals</a></li>
                     <li class="divider"></li>
-                    <li><a href="/guest/logout" data-toggle="modal" data-target="#billingAddress">Log out</a></li>
+                    <li><a href="/guest/logout" >Log out</a></li>
                 </ul>
             </div>
 
@@ -19,6 +19,7 @@
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#registry">Register</button>
         </#if>
     </section>
-<#include "loggingButtons.ftl">
+
+    <#include "loggingButtons.ftl">
 </header>
 
