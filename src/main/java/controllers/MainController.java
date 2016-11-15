@@ -34,7 +34,9 @@ public class MainController {
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String mainPage(ModelMap model) {
         Guest guest = ClientController.getPrincipal();
+        List<Order> orders = orderService.findOrdersOfUser(guest);
         model.addAttribute("user", guest);
+        model.addAttribute("myOrders", orders);
         return "main";
     }
 
