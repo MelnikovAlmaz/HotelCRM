@@ -70,3 +70,59 @@ function renderYearChart() {
         }
     });
 }
+function renderMonthTable() {
+    $.ajax({
+        url: '/admin/accountancy/search/income_year_month',
+        data: {"date": $("#yearAnalyticTable").val()},
+        dataType: "json",
+        success: function (data, textStatus) {
+            var monthTable = $("#monthTable1");
+            var monthTable2 = $("#monthTable2");
+            var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            var totalIncome = [];
+            var totalIncome2 = [];
+            for (i = 0; i < 6; i++){
+                totalIncome[i] = 0.0;
+                totalIncome2[i] = 0.0;
+            }
+            var tableContent = "";
+            var tableContent2 = "";
+            tableContent += '<thead>';
+            tableContent2 += '<thead>';
+            tableContent += '<th>Day</th>';
+            tableContent2 += '<th>Day</th>';
+            for (i = 0; i < months.length / 2; i++){
+                tableContent += '<th>' + months[i] + '</th>';
+                tableContent2 += '<th>' + months[i + 6] + '</th>';
+            }
+            tableContent += '</thead><tbody>';
+            tableContent2 += '</thead><tbody>';
+            for (var i = 0; i < data.length; i++) {
+                tableContent += '<tr>';
+                tableContent2 += '<tr>';
+                tableContent += '<td>' + (i + 1) + '</td>';
+                tableContent2 += '<td>' + (i + 1) + '</td>';
+                for (var j = 0; j < data[i].length / 2; j++){
+                    tableContent += '<td>' + data[i][j] + '</td>';
+                    tableContent2 += '<td>' + data[i][j + 6] + '</td>';
+                    totalIncome[j] += data[i][j];
+                    totalIncome2[j] += data[i][j + 6];
+                }
+                tableContent += '</tr>';
+                tableContent2 += '</tr>';
+            }
+            tableContent += '<tr class="info"><td>Total:</td>';
+            tableContent2 += '<tr class="info"><td>Total:</td>';
+            for (i = 0; i < totalIncome.length; i++){
+                tableContent += '<td>' + totalIncome[i] + '</td>';
+                tableContent2 += '<td>' + totalIncome2[i] + '</td>';
+            }
+            tableContent += '</tr>';
+            tableContent2 += '</tr>';
+            tableContent += '</tbody>';
+            tableContent2 += '</tbody>';
+            monthTable.append(tableContent);
+            monthTable2.append(tableContent2);
+        }
+    });
+}

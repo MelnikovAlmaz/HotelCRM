@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import repository.AccountancyRepository;
 import service.AccountancyService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -25,5 +26,20 @@ public class AccountancyServiceImpl implements AccountancyService{
         List<Double> incomeYear = accountancyRepository.findOrderYearIncomeByHotelId(hotelId, year);
         //TODO add mealOrderIncome
         return incomeYear;
+    }
+
+    @Override
+    public List<List<Double>> findEachMonthYearIncomeByHotelId(Integer hotelId, Integer year) {
+        List<List<Double>> yearIncome = new ArrayList<>(31);
+        for (int i = 0; i < 31; i++) {
+            yearIncome.add(new ArrayList<Double>(12));
+        }
+        for (int i = 0; i < 12; i++) {
+            List<Double> month = findMonthIncomeByHotelId(hotelId, year, i + 1);
+            for (int j = 0; j < month.size(); j++) {
+                yearIncome.get(j).add(i, month.get(j));
+            }
+        }
+        return yearIncome;
     }
 }

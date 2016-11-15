@@ -10,29 +10,22 @@
         <main class="col-lg-10">
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active">
-                    <a href="#chart" aria-controls="home" role="tab"
-                       data-toggle="tab">Chart</a>
+                    <a href="#chart" aria-controls="chart" role="tab" data-toggle="tab">Chart</a>
                 </li>
                 <li role="presentation">
-                    <a href="#table" aria-controls="profile" role="tab" data-toggle="tab">
-                        Table
-                    </a>
+                    <a href="#table" aria-controls="table" role="tab" data-toggle="tab">Table</a>
                 </li>
             </ul>
             <div class="tab-content">
-                <div role="chartPanel" class="tab-pane active row" id="chart">
+                <div role="tabpanel" class="tab-pane fade in active" id="chart">
                     <div class="row-fluid panel panel-default">
                         <div class="panel-heading">Month</div>
                         <div class="panel-body row">
                             <div class="col-lg-8">
-                                <div class="span5">
-                                    <input type="month" name="monthAnalytic" id="monthAnalytic" style="height: 30px;">
-                                </div>
-                                <div class="span4">
-                                    <button class="btn btn-default" id="monthBtn" onclick="renderMonthChart()">
-                                        Обновить
-                                    </button>
-                                </div>
+                                <input class="form-control" type="month" name="monthAnalytic" id="monthAnalytic">
+                                <button class=" form-control btn btn-default" id="monthBtn"
+                                        onclick="renderMonthChart()">Обновить
+                                </button>
                                 <div>
                                     <canvas id="monthChart"></canvas>
                                 </div>
@@ -59,18 +52,11 @@
                         <div class="panel-heading">Year</div>
                         <div class="panel-body row">
                             <div class="col-lg-8">
-                                <div class="span5">
-                                    <input type="number" min="2000" name="yearAnalytic" id="yearAnalytic"
-                                           style="height: 30px;">
-                                </div>
-                                <div class="span4">
-                                    <button class="btn btn-default" id="yearBtn" onclick="renderYearChart()">
-                                        Обновить
-                                    </button>
-                                </div>
-                                <div>
-                                    <canvas id="yearChart"></canvas>
-                                </div>
+                                <input class="form-control" type="number" min="2000" name="yearAnalytic" id="yearAnalytic">
+                                <button class="form-control btn btn-default" id="yearBtn" onclick="renderYearChart()">
+                                    Обновить
+                                </button>
+                                <canvas id="yearChart"></canvas>
                             </div>
                             <div class="col-lg-4">
                                 <ul class="list-group">
@@ -90,7 +76,23 @@
                             </div>
                         </div>
                     </div>
-                    <div role="tablePanel" class="tab-pane active row" id="chart"></div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="table">
+                    <div class="row-fluid panel panel-default">
+                        <div class="panel-heading">Year</div>
+                        <div class="panel-body row">
+                            <div class="col-lg-12">
+                                <input class="form-control" type="number" min="2000" id="yearAnalyticTable">
+                                <button class="form-control btn btn-default">Обновить</button>
+                                <div>
+                                    <table class="table table-responsive table-bordered table-striped" id="monthTable1">
+                                    </table>
+                                    <table class="table table-responsive table-bordered table-striped" id="monthTable2">
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
