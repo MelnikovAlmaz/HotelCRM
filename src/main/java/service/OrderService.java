@@ -1,5 +1,6 @@
 package service;
 
+import entity.Guest;
 import entity.Order;
 
 import java.util.List;
@@ -9,4 +10,5 @@ public interface OrderService {
     List<Order> findAllOrders();
     void save(Order order);
     void delete(Order order);
+    List<Order> findOrdersOfUser(Guest guest);
 }
