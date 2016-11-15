@@ -17,7 +17,7 @@
                 <span>${hotel.price}</span>
             </div>
             <div>
-                <button class="btn btn-warning">Choose room</button>
+                <a href="/search/${hotel.id}?beginDate=${beginDate}&endDate=${endDate}&guestNumber=${guestNumber}"> <button class="btn btn-warning">Choose room</button> </a>
             </div>
         </div>
         <div class="col-xs-5">
@@ -25,7 +25,7 @@
                 <h3>${hotel.name}</h3>
             </div>
             <div>
-                <p>${hotel.description}</p>
+                <p class="description_b" >${hotel.description}</p>
             </div>
         </div>
         <div class="col-xs-4 padding0">

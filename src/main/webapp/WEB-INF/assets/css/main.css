@@ -70,6 +70,24 @@
     padding: 0;
 }
 
+
+
+
+.title_b{
+    color: #0f0f0f;
+}
+.description_w{
+    font: Georgia;
+    font-size: large;
+    color: white;
+}
+
+.description_b{
+    font: Georgia;
+    font-size: medium;
+    color: #555555;
+}
+
 p{
     color: aliceblue;
 }
@@ -138,7 +156,7 @@ h1{
 
 .envelope_l {
     display: none;
-    width: 40%;
+    width: 35%;
     height: 340px;
     background: url(images/envelope.png) center no-repeat;
     z-index:1002;

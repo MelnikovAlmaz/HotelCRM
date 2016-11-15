@@ -1,11 +1,13 @@
 <header>
     <section class="login-header">
         <form class="login_form">
-            <a class="show-btn" href = "javascript:void(0)" onclick = "document.getElementById('envelope_l').style.display='block';document.getElementById('fade').style.display='block';document.getElementById('ins').style.display='none'">Sign In</a>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#logging">Log in</button>
             <p class="or"> or </p>
-            <a class="show-btn" href = "javascript:void(0)" onclick = "document.getElementById('envelope').style.display='block';document.getElementById('fade').style.display='block';document.getElementById('ins').style.display='none'">Sign Up</a>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#registry">Register</button>
         </form>
 
     </section>
 
+    <#include "loggingButtons.ftl">
 </header>
+
