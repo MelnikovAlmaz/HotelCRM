@@ -1,11 +1,6 @@
 package controllers;
 
-import entity.Guest;
-import entity.Order;
-import entity.Room;
-import entity.RoomCategory;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
+import entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -75,8 +70,10 @@ public class MainController {
         //TODO free roomCategories by guestNumber
         List<RoomCategory> roomCategories = roomCategoryService.findAllRoomCategoriesByHotelId(hotelId);
         Guest guest = ClientController.getPrincipal();
+        Hotel hotel = hotelService.findHotelById(hotelId);
 
         model.addAttribute("user", guest);
+        model.addAttribute("hotel", hotel);
         model.addAttribute("roomCategories", roomCategories);
         model.addAttribute("beginDate", beginDate);
         model.addAttribute("endDate", endDate);
@@ -85,26 +82,24 @@ public class MainController {
     }
 
     @RequestMapping(value = "/search/{id}", method = RequestMethod.POST)
-    public
-    @ResponseBody
-    Boolean orderPost(@RequestParam(value = "roomCategory") Integer roomCategoryId,
-                      @RequestParam(value = "beginDate") String beginDate,
-                      @RequestParam(value = "endDate") String endDate,
-                      @RequestParam(value = "phoneNumber", required = false) String phoneNumber,
-                      @RequestParam(value = "name", required = false) String name,
-                      @RequestParam(value = "password", required = false) String password) {
-        //TODO Check authorization of guest
-        Guest guest;
-        try {
+    public String orderPost(ModelMap model,
+                            @RequestParam(value = "roomCategory") Integer roomCategoryId,
+                            @RequestParam(value = "beginDate") String beginDate,
+                            @RequestParam(value = "endDate") String endDate,
+                            @RequestParam(value = "phoneNumber", required = false) String phoneNumber,
+                            @RequestParam(value = "name", required = false) String name,
+                            @RequestParam(value = "password", required = false) String password) {
+        Guest guest = ClientController.getPrincipal();
+        if (guest == null) {
             guest = guestService.findGuestByPhoneNumber(phoneNumber);
-        } catch (Exception e) {
-            //TODO delete prints
-            e.printStackTrace();
-            guest = new Guest();
-            guest.setName(name);
-            guest.setPhoneNumber(phoneNumber);
-            guest.setPassword(password);
-            guestService.save(guest);
+            if (guest == null) {
+                guest = new Guest();
+                guest.setName(name);
+                guest.setPhoneNumber(phoneNumber);
+                guest.setPassword(password);
+                guestService.save(guest);
+                guest = guestService.findGuestByPhoneNumber(phoneNumber);
+            }
         }
         RoomCategory roomCategory = roomCategoryService.findRoomCategoryById(roomCategoryId);
         Room room = roomService.findFreeRoomForRoomCategory(roomCategoryId);
@@ -112,9 +107,10 @@ public class MainController {
         long daysBetween = DAYS.between(LocalDate.parse(beginDate), LocalDate.parse(endDate));
         Double orderPrice = daysBetween * roomCategory.getPrice();
 
-        DateTimeFormatter df = DateTimeFormat.forPattern("yyyy-mm-dd");
-        Date begin = new Date(df.parseMillis(beginDate));
-        Date end = new Date(df.parseMillis(endDate));
+        LocalDate bDate = LocalDate.parse(beginDate);
+        Date begin = Date.valueOf(bDate);
+        LocalDate eDate = LocalDate.parse(endDate);
+        Date end = Date.valueOf(eDate);
 
         Order order = new Order();
         order.setPrice(orderPrice);
@@ -125,10 +121,13 @@ public class MainController {
 
         try {
             orderService.save(order);
-            return true;
         } catch (Exception e) {
-            e.printStackTrace();
-            return false;
+        } finally {
+            model.addAttribute("user", guest);
+            model.addAttribute("beginDate", beginDate);
+            model.addAttribute("endDate", endDate);
+            model.addAttribute("guestNumber", roomCategory.getBeds());
+            return "hotel_order";
         }
     }
 

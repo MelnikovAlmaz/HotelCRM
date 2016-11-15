@@ -51,7 +51,6 @@ public class ClientController {
         try {
             guest = (Guest) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         } catch (NullPointerException | ClassCastException e) {
-            e.printStackTrace();
         }
         return guest;
     }
