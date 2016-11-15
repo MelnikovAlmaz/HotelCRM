@@ -37,7 +37,9 @@ public class MainController {
     private OrderService orderService;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public String mainPage() {
+    public String mainPage(ModelMap model) {
+        Guest guest = GuestController.getPrincipal();
+        model.addAttribute("user", guest);
         return "main";
     }
 
@@ -53,7 +55,9 @@ public class MainController {
                                  @RequestParam(value = "endDate") String endDate,
                                  @RequestParam(value = "guestNumber") Integer guestNumber) {
         List<HotelInfo> hotels = hotelService.findHotelInfo(name, LocalDate.parse(beginDate), LocalDate.parse(endDate), guestNumber);
+        Guest guest = GuestController.getPrincipal();
 
+        model.addAttribute("user", guest);
         model.addAttribute("name", name);
         model.addAttribute("beginDate", beginDate);
         model.addAttribute("endDate", endDate);
@@ -70,7 +74,9 @@ public class MainController {
                            @RequestParam(value = "guestNumber") Integer guestNumber) {
         //TODO free roomCategories by guestNumber
         List<RoomCategory> roomCategories = roomCategoryService.findAllRoomCategoriesByHotelId(hotelId);
+        Guest guest = GuestController.getPrincipal();
 
+        model.addAttribute("user", guest);
         model.addAttribute("roomCategories", roomCategories);
         model.addAttribute("beginDate", beginDate);
         model.addAttribute("endDate", endDate);
