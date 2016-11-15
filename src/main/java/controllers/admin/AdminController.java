@@ -5,7 +5,9 @@ import entity.Employee;
 import entity.Hotel;
 import entity.Role;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import service.CityService;
 import service.EmployeeService;
 import service.HotelService;
@@ -34,7 +38,13 @@ public class AdminController {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String main(ModelMap model) {
-        return "redirect:/admin/dashboard";
+        Employee employee = getPrincipal();
+        switch (employee.getRole().getName()){
+            case "Accountancy":
+                return "redirect:/admin/accountancy";
+            default:
+                return "redirect:/admin/dashboard";
+        }
     }
 
     @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
@@ -52,6 +62,15 @@ public class AdminController {
         return "admin/auth/login";
     }
 
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null) {
+            new SecurityContextLogoutHandler().logout(request, response, auth);
+        }
+        return "redirect:/admin/login";
+    }
+
     @RequestMapping(value = "/signUp", method = RequestMethod.GET)
     public String signUp() {
         return "admin/auth/signUp";
@@ -63,14 +82,14 @@ public class AdminController {
                              @RequestParam String phoneNumber,
                              @RequestParam String password,
                              @RequestParam String confirm_password) {
-        if(phoneNumber.length() == 11 && password.equals(confirm_password)){
+        if (phoneNumber.length() == 11 && password.equals(confirm_password)) {
             Employee employee = new Employee();
             employee.setName(name);
             employee.setPhoneNumber(phoneNumber);
             employee.setPassword(password);
             employee.setSalary(1.0);
             employee.setSalaryType("Month");
-            Role role =  roleService.findRoleByName("Administrator");
+            Role role = roleService.findRoleByName("Administrator");
             employee.setRole(role);
             employeeService.save(employee);
         }
@@ -79,7 +98,7 @@ public class AdminController {
 
     @RequestMapping(value = "/dashboard/hotel/{id}", method = RequestMethod.GET)
     public String hotel(Model model, @PathVariable(value = "id") Integer hotelId) {
-        Employee employee =  getPrincipal();
+        Employee employee = getPrincipal();
         List<City> cities = cityService.findAllCities();
         Hotel hotel = hotelService.findHotelById(hotelId);
 
@@ -91,7 +110,7 @@ public class AdminController {
 
     @RequestMapping(value = "/dashboard/hotel/new", method = RequestMethod.GET)
     public String newHotel(Model model) {
-        Employee employee =  getPrincipal();
+        Employee employee = getPrincipal();
         List<City> cities = cityService.findAllCities();
 
         model.addAttribute("user", employee);
@@ -107,7 +126,7 @@ public class AdminController {
                                @RequestParam(value = "city") Integer cityId,
                                @RequestParam String description) {
         Employee employee = getPrincipal();
-        if(phoneNumber.length() == 11 && name.length() > 0 && cityId != null && cityId > 0){
+        if (phoneNumber.length() == 11 && name.length() > 0 && cityId != null && cityId > 0) {
             Hotel hotel = new Hotel();
             hotel.setName(name);
             hotel.setPhoneNumber(phoneNumber);
@@ -119,8 +138,7 @@ public class AdminController {
             hotelService.save(hotel);
 
             return "redirect:/admin/dashboard";
-        }
-        else {
+        } else {
             return "redirect:/admin/dashboard/hotel/new";
         }
     }
@@ -130,7 +148,7 @@ public class AdminController {
         return "redirect:/admin/entity/hotels";
     }
 
-    public static Employee getPrincipal(){
+    public static Employee getPrincipal() {
         Employee employee = (Employee) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return employee;
     }

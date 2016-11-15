@@ -10,248 +10,756 @@
       <schema id="2" parent="1" name="public">
         <object-id>2200</object-id>
         <comment>standard public schema</comment>
-        <introspection-state-number>1745</introspection-state-number>
-        <introspection-timestamp>2016-10-17.23:38:16.936</introspection-timestamp>
+        <introspection-state-number>1908</introspection-state-number>
+        <introspection-timestamp>2016-11-11.12:37:46.744</introspection-timestamp>
       </schema>
-      <sequence id="3" parent="2" name="client_id_seq">
-        <object-id>107226</object-id>
-        <state-number>1739</state-number>
+      <sequence id="3" parent="2" name="city_id_seq">
+        <object-id>131702</object-id>
+        <state-number>1908</state-number>
       </sequence>
-      <sequence id="4" parent="2" name="hotel_id_seq">
-        <object-id>107218</object-id>
-        <state-number>1738</state-number>
+      <sequence id="4" parent="2" name="department_id_seq">
+        <object-id>131726</object-id>
+        <state-number>1908</state-number>
       </sequence>
-      <sequence id="5" parent="2" name="Order_id_seq">
-        <object-id>107296</object-id>
-        <state-number>1745</state-number>
+      <sequence id="5" parent="2" name="employee_id_seq">
+        <object-id>131739</object-id>
+        <state-number>1908</state-number>
       </sequence>
-      <sequence id="6" parent="2" name="room_id_seq">
-        <object-id>107272</object-id>
-        <state-number>1742</state-number>
+      <sequence id="6" parent="2" name="guest_id_seq">
+        <object-id>131684</object-id>
+        <state-number>1908</state-number>
       </sequence>
-      <sequence id="7" parent="2" name="roomcategory_id_seq">
-        <object-id>107210</object-id>
-        <state-number>1737</state-number>
+      <sequence id="7" parent="2" name="hotel_id_seq">
+        <object-id>131710</object-id>
+        <state-number>1908</state-number>
       </sequence>
-      <table id="8" parent="2" name="client">
-        <object-id>107228</object-id>
-        <state-number>1745</state-number>
+      <sequence id="8" parent="2" name="meal_id_seq">
+        <object-id>131821</object-id>
+        <state-number>1908</state-number>
+      </sequence>
+      <sequence id="9" parent="2" name="mealorder_id_seq">
+        <object-id>131880</object-id>
+        <state-number>1908</state-number>
+      </sequence>
+      <sequence id="10" parent="2" name="menu_id_seq">
+        <object-id>131808</object-id>
+        <state-number>1908</state-number>
+      </sequence>
+      <sequence id="11" parent="2" name="Order_id_seq">
+        <object-id>131857</object-id>
+        <state-number>1908</state-number>
+      </sequence>
+      <sequence id="12" parent="2" name="role_id_seq">
+        <object-id>131694</object-id>
+        <state-number>1908</state-number>
+      </sequence>
+      <sequence id="13" parent="2" name="room_id_seq">
+        <object-id>131787</object-id>
+        <state-number>1908</state-number>
+      </sequence>
+      <sequence id="14" parent="2" name="roomcategory_id_seq">
+        <object-id>131769</object-id>
+        <state-number>1908</state-number>
+      </sequence>
+      <table id="15" parent="2" name="attendance">
+        <object-id>131846</object-id>
+        <state-number>1908</state-number>
       </table>
-      <table id="9" parent="2" name="hotel">
-        <object-id>107220</object-id>
-        <state-number>1742</state-number>
+      <table id="16" parent="2" name="city">
+        <object-id>131704</object-id>
+        <state-number>1908</state-number>
       </table>
-      <table id="10" parent="2" name="Order">
-        <object-id>107298</object-id>
-        <state-number>1745</state-number>
+      <table id="17" parent="2" name="department">
+        <object-id>131728</object-id>
+        <state-number>1908</state-number>
       </table>
-      <table id="11" parent="2" name="room">
-        <object-id>107274</object-id>
-        <state-number>1745</state-number>
+      <table id="18" parent="2" name="employee">
+        <object-id>131741</object-id>
+        <state-number>1908</state-number>
       </table>
-      <table id="12" parent="2" name="roomcategory">
-        <object-id>107212</object-id>
-        <state-number>1742</state-number>
+      <table id="19" parent="2" name="guest">
+        <object-id>131686</object-id>
+        <state-number>1908</state-number>
       </table>
-      <column id="13" parent="8" name="id">
-        <state-number>1739</state-number>
+      <table id="20" parent="2" name="hotel">
+        <object-id>131712</object-id>
+        <state-number>1908</state-number>
+      </table>
+      <table id="21" parent="2" name="meal">
+        <object-id>131823</object-id>
+        <state-number>1908</state-number>
+      </table>
+      <table id="22" parent="2" name="mealorder">
+        <object-id>131882</object-id>
+        <state-number>1908</state-number>
+      </table>
+      <table id="23" parent="2" name="menu">
+        <object-id>131810</object-id>
+        <state-number>1908</state-number>
+      </table>
+      <table id="24" parent="2" name="Order">
+        <object-id>131859</object-id>
+        <state-number>1908</state-number>
+      </table>
+      <table id="25" parent="2" name="role">
+        <object-id>131696</object-id>
+        <state-number>1908</state-number>
+      </table>
+      <table id="26" parent="2" name="room">
+        <object-id>131789</object-id>
+        <state-number>1908</state-number>
+      </table>
+      <table id="27" parent="2" name="roomcategory">
+        <object-id>131771</object-id>
+        <state-number>1908</state-number>
+      </table>
+      <table id="28" parent="2" name="workschedule">
+        <object-id>131835</object-id>
+        <state-number>1908</state-number>
+      </table>
+      <column id="29" parent="15" name="timein">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp with time zone</data-type>
+        <default-expression>now()</default-expression>
+      </column>
+      <column id="30" parent="15" name="timeout">
+        <state-number>1908</state-number>
+        <data-type>timestamp with time zone</data-type>
+      </column>
+      <column id="31" parent="15" name="employeeid">
+        <state-number>1908</state-number>
         <mandatory>1</mandatory>
         <data-type>integer</data-type>
-        <default-expression>nextval(&apos;client_id_seq&apos;::regclass)</default-expression>
       </column>
-      <column id="14" parent="8" name="firstname">
-        <state-number>1739</state-number>
-        <data-type>varchar(100)</data-type>
-      </column>
-      <column id="15" parent="8" name="lastname">
-        <state-number>1739</state-number>
-        <data-type>varchar(100)</data-type>
-      </column>
-      <column id="16" parent="8" name="phonenumber">
-        <state-number>1739</state-number>
-        <data-type>char(11)</data-type>
-      </column>
-      <index id="17" parent="8" name="client_pkey">
-        <object-id>107232</object-id>
-        <columns>id</columns>
+      <index id="32" parent="15" name="attendance_pk">
+        <object-id>131850</object-id>
+        <columns>timein
+employeeid</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="18" parent="8" name="client_pkey">
-        <columns>id</columns>
-        <underlying-index>client_pkey</underlying-index>
+      <key id="33" parent="15" name="attendance_pk">
+        <columns>timein
+employeeid</columns>
+        <underlying-index>attendance_pk</underlying-index>
         <primary>1</primary>
       </key>
-      <column id="19" parent="9" name="id">
-        <state-number>1738</state-number>
-        <mandatory>1</mandatory>
-        <data-type>integer</data-type>
-        <default-expression>nextval(&apos;hotel_id_seq&apos;::regclass)</default-expression>
-      </column>
-      <column id="20" parent="9" name="name">
-        <state-number>1738</state-number>
-        <data-type>varchar(100)</data-type>
-      </column>
-      <column id="21" parent="9" name="phonenumber">
-        <state-number>1738</state-number>
-        <data-type>char(11)</data-type>
-      </column>
-      <column id="22" parent="9" name="address">
-        <state-number>1738</state-number>
-        <data-type>varchar(100)</data-type>
-      </column>
-      <column id="23" parent="9" name="description">
-        <state-number>1738</state-number>
-        <data-type>varchar(255)</data-type>
-      </column>
-      <index id="24" parent="9" name="hotel_pkey">
-        <object-id>107224</object-id>
-        <columns>id</columns>
-        <desc-columns></desc-columns>
-        <unique>1</unique>
-      </index>
-      <key id="25" parent="9" name="hotel_pkey">
-        <columns>id</columns>
-        <underlying-index>hotel_pkey</underlying-index>
-        <primary>1</primary>
-      </key>
-      <column id="26" parent="10" name="id">
-        <state-number>1745</state-number>
-        <mandatory>1</mandatory>
-        <data-type>integer</data-type>
-        <default-expression>nextval(&apos;&quot;Order_id_seq&quot;&apos;::regclass)</default-expression>
-      </column>
-      <column id="27" parent="10" name="ordertime">
-        <state-number>1745</state-number>
-        <mandatory>1</mandatory>
-        <data-type>timestamp</data-type>
-      </column>
-      <column id="28" parent="10" name="arrivaltime">
-        <state-number>1745</state-number>
-        <mandatory>1</mandatory>
-        <data-type>timestamp</data-type>
-      </column>
-      <column id="29" parent="10" name="departuretime">
-        <state-number>1745</state-number>
-        <mandatory>1</mandatory>
-        <data-type>timestamp</data-type>
-      </column>
-      <column id="30" parent="10" name="clientid">
-        <state-number>1745</state-number>
-        <mandatory>1</mandatory>
-        <data-type>integer</data-type>
-      </column>
-      <column id="31" parent="10" name="roomid">
-        <state-number>1745</state-number>
-        <mandatory>1</mandatory>
-        <data-type>integer</data-type>
-      </column>
-      <index id="32" parent="10" name="Order_pkey">
-        <object-id>107302</object-id>
-        <columns>id</columns>
-        <desc-columns></desc-columns>
-        <unique>1</unique>
-      </index>
-      <key id="33" parent="10" name="Order_pkey">
-        <columns>id</columns>
-        <underlying-index>Order_pkey</underlying-index>
-        <primary>1</primary>
-      </key>
-      <foreign-key id="34" parent="10" name="client_fk">
-        <columns>clientid</columns>
-        <ref-key>~.client.client_pkey</ref-key>
+      <foreign-key id="34" parent="15" name="employee_fk">
+        <columns>employeeid</columns>
+        <ref-key>~.employee.employee_pkey</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="35" parent="10" name="room_fk">
-        <columns>roomid</columns>
-        <ref-key>~.room.room_pkey</ref-key>
+      <column id="35" parent="16" name="id">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;city_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="36" parent="16" name="name">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <index id="37" parent="16" name="city_pkey">
+        <object-id>131708</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="38" parent="16" name="city_pkey">
+        <columns>id</columns>
+        <underlying-index>city_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <column id="39" parent="17" name="id">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;department_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="40" parent="17" name="name">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="41" parent="17" name="managerid">
+        <state-number>1908</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="42" parent="17" name="hotelid">
+        <state-number>1908</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <index id="43" parent="17" name="department_pkey">
+        <object-id>131732</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="44" parent="17" name="department_pkey">
+        <columns>id</columns>
+        <underlying-index>department_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="45" parent="17" name="manager_fk">
+        <columns>managerid</columns>
+        <ref-key>~.employee.employee_pkey</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="36" parent="11" name="id">
-        <state-number>1742</state-number>
-        <mandatory>1</mandatory>
-        <data-type>integer</data-type>
-        <default-expression>nextval(&apos;room_id_seq&apos;::regclass)</default-expression>
-      </column>
-      <column id="37" parent="11" name="number">
-        <state-number>1742</state-number>
-        <mandatory>1</mandatory>
-        <data-type>integer</data-type>
-      </column>
-      <column id="38" parent="11" name="hotelid">
-        <state-number>1742</state-number>
-        <mandatory>1</mandatory>
-        <data-type>integer</data-type>
-      </column>
-      <column id="39" parent="11" name="categoryid">
-        <state-number>1742</state-number>
-        <mandatory>1</mandatory>
-        <data-type>integer</data-type>
-      </column>
-      <index id="40" parent="11" name="room_pkey">
-        <object-id>107278</object-id>
-        <columns>id</columns>
-        <desc-columns></desc-columns>
-        <unique>1</unique>
-      </index>
-      <index id="41" parent="11" name="room_number_key">
-        <object-id>107280</object-id>
-        <columns>number</columns>
-        <desc-columns></desc-columns>
-        <unique>1</unique>
-      </index>
-      <key id="42" parent="11" name="room_pkey">
-        <columns>id</columns>
-        <underlying-index>room_pkey</underlying-index>
-        <primary>1</primary>
-      </key>
-      <key id="43" parent="11" name="room_number_key">
-        <columns>number</columns>
-        <underlying-index>room_number_key</underlying-index>
-      </key>
-      <foreign-key id="44" parent="11" name="hotel_fk">
+      <foreign-key id="46" parent="17" name="hotel_fk">
         <columns>hotelid</columns>
         <ref-key>~.hotel.hotel_pkey</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="45" parent="11" name="category_fk">
-        <columns>categoryid</columns>
-        <ref-key>~.roomcategory.roomcategory_pkey</ref-key>
-        <cascade-update-rule>restrict</cascade-update-rule>
-        <cascade-delete-rule>restrict</cascade-delete-rule>
-      </foreign-key>
-      <column id="46" parent="12" name="id">
-        <state-number>1737</state-number>
+      <column id="47" parent="18" name="id">
+        <state-number>1908</state-number>
         <mandatory>1</mandatory>
         <data-type>integer</data-type>
-        <default-expression>nextval(&apos;roomcategory_id_seq&apos;::regclass)</default-expression>
+        <default-expression>nextval(&apos;employee_id_seq&apos;::regclass)</default-expression>
       </column>
-      <column id="47" parent="12" name="bednumber">
-        <state-number>1737</state-number>
+      <column id="48" parent="18" name="name">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="49" parent="18" name="phonenumber">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>char(11)</data-type>
+      </column>
+      <column id="50" parent="18" name="password">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="51" parent="18" name="salary">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>double precision</data-type>
+      </column>
+      <column id="52" parent="18" name="salarytype">
+        <state-number>1908</state-number>
+        <data-type>varchar(10)</data-type>
+      </column>
+      <column id="53" parent="18" name="isfired">
+        <state-number>1908</state-number>
+        <data-type>boolean</data-type>
+        <default-expression>true</default-expression>
+      </column>
+      <column id="54" parent="18" name="roleid">
+        <state-number>1908</state-number>
         <data-type>integer</data-type>
       </column>
-      <column id="48" parent="12" name="cost">
-        <state-number>1737</state-number>
-        <data-type>real</data-type>
+      <column id="55" parent="18" name="departmentid">
+        <state-number>1908</state-number>
+        <data-type>integer</data-type>
       </column>
-      <column id="49" parent="12" name="description">
-        <state-number>1737</state-number>
-        <data-type>varchar(255)</data-type>
-      </column>
-      <index id="50" parent="12" name="roomcategory_pkey">
-        <object-id>107216</object-id>
+      <index id="56" parent="18" name="employee_pkey">
+        <object-id>131747</object-id>
         <columns>id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="51" parent="12" name="roomcategory_pkey">
+      <key id="57" parent="18" name="employee_pkey">
+        <columns>id</columns>
+        <underlying-index>employee_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="58" parent="18" name="role_fk">
+        <columns>roleid</columns>
+        <ref-key>~.role.role_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="59" parent="18" name="department_fk">
+        <columns>departmentid</columns>
+        <ref-key>~.department.department_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <check id="60" parent="18" name="salary_check">
+        <columns>salary</columns>
+        <predicate>salary &gt; (0)::double precision</predicate>
+      </check>
+      <column id="61" parent="19" name="id">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;guest_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="62" parent="19" name="name">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="63" parent="19" name="phonenumber">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>char(11)</data-type>
+      </column>
+      <column id="64" parent="19" name="password">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="65" parent="19" name="passport">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <index id="66" parent="19" name="guest_pkey">
+        <object-id>131690</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="67" parent="19" name="guest_phonenumber_key">
+        <object-id>131692</object-id>
+        <columns>phonenumber</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="68" parent="19" name="guest_pkey">
+        <columns>id</columns>
+        <underlying-index>guest_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <key id="69" parent="19" name="guest_phonenumber_key">
+        <columns>phonenumber</columns>
+        <underlying-index>guest_phonenumber_key</underlying-index>
+      </key>
+      <column id="70" parent="20" name="id">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;hotel_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="71" parent="20" name="name">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="72" parent="20" name="address">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>varchar(150)</data-type>
+      </column>
+      <column id="73" parent="20" name="phonenumber">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>char(11)</data-type>
+      </column>
+      <column id="74" parent="20" name="description">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="75" parent="20" name="managerid">
+        <state-number>1908</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="76" parent="20" name="cityid">
+        <state-number>1908</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <index id="77" parent="20" name="hotel_pkey">
+        <object-id>131719</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="78" parent="20" name="hotel_pkey">
+        <columns>id</columns>
+        <underlying-index>hotel_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="79" parent="20" name="manager_fk">
+        <columns>managerid</columns>
+        <ref-key>~.employee.employee_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="80" parent="20" name="city_fk">
+        <columns>cityid</columns>
+        <ref-key>~.city.city_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="81" parent="21" name="id">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;meal_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="82" parent="21" name="name">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="83" parent="21" name="menuid">
+        <state-number>1908</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="84" parent="21" name="price">
+        <state-number>1908</state-number>
+        <data-type>double precision</data-type>
+      </column>
+      <index id="85" parent="21" name="meal_pkey">
+        <object-id>131828</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="86" parent="21" name="meal_pkey">
+        <columns>id</columns>
+        <underlying-index>meal_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="87" parent="21" name="menu_fk">
+        <columns>menuid</columns>
+        <ref-key>~.menu.menu_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <check id="88" parent="21" name="price_check">
+        <columns>price</columns>
+        <predicate>price &gt; (0)::double precision</predicate>
+      </check>
+      <column id="89" parent="22" name="id">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;mealorder_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="90" parent="22" name="price">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="91" parent="22" name="ordertime">
+        <state-number>1908</state-number>
+        <data-type>timestamp with time zone</data-type>
+        <default-expression>now()</default-expression>
+      </column>
+      <column id="92" parent="22" name="guestid">
+        <state-number>1908</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="93" parent="22" name="menuid">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <index id="94" parent="22" name="mealorder_pkey">
+        <object-id>131888</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="95" parent="22" name="mealorder_pkey">
+        <columns>id</columns>
+        <underlying-index>mealorder_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="96" parent="22" name="guest_fk">
+        <columns>guestid</columns>
+        <ref-key>~.guest.guest_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="97" parent="22" name="menu_fk">
+        <columns>menuid</columns>
+        <ref-key>~.menu.menu_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <check id="98" parent="22" name="price_check">
+        <columns>price</columns>
+        <predicate>price &gt; 0</predicate>
+      </check>
+      <column id="99" parent="23" name="id">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;menu_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="100" parent="23" name="hotelid">
+        <state-number>1908</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <index id="101" parent="23" name="menu_pkey">
+        <object-id>131814</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="102" parent="23" name="menu_pkey">
+        <columns>id</columns>
+        <underlying-index>menu_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="103" parent="23" name="hotel_fk">
+        <columns>hotelid</columns>
+        <ref-key>~.hotel.hotel_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="104" parent="24" name="id">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;&quot;Order_id_seq&quot;&apos;::regclass)</default-expression>
+      </column>
+      <column id="105" parent="24" name="roomid">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="106" parent="24" name="guestid">
+        <state-number>1908</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="107" parent="24" name="ordertime">
+        <state-number>1908</state-number>
+        <data-type>timestamp with time zone</data-type>
+        <default-expression>now()</default-expression>
+      </column>
+      <column id="108" parent="24" name="begindate">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="109" parent="24" name="enddate">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="110" parent="24" name="price">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>double precision</data-type>
+      </column>
+      <column id="111" parent="24" name="isarived">
+        <state-number>1908</state-number>
+        <data-type>boolean</data-type>
+        <default-expression>false</default-expression>
+      </column>
+      <index id="112" parent="24" name="Order_pkey">
+        <object-id>131868</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="113" parent="24" name="Order_pkey">
+        <columns>id</columns>
+        <underlying-index>Order_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="114" parent="24" name="room_fk">
+        <columns>roomid</columns>
+        <ref-key>~.room.room_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="115" parent="24" name="guestid">
+        <columns>guestid</columns>
+        <ref-key>~.guest.guest_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <check id="116" parent="24" name="begindate_check">
+        <columns>begindate</columns>
+        <predicate>begindate &gt;= (&apos;now&apos;::text)::date</predicate>
+      </check>
+      <check id="117" parent="24" name="enddate_check">
+        <columns>enddate
+begindate</columns>
+        <predicate>enddate &gt;= begindate</predicate>
+      </check>
+      <check id="118" parent="24" name="price_check">
+        <columns>price</columns>
+        <predicate>price &gt;= (0)::double precision</predicate>
+      </check>
+      <column id="119" parent="25" name="id">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;role_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="120" parent="25" name="name">
+        <state-number>1908</state-number>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <index id="121" parent="25" name="role_pkey">
+        <object-id>131700</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="122" parent="25" name="role_pkey">
+        <columns>id</columns>
+        <underlying-index>role_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <column id="123" parent="26" name="id">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;room_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="124" parent="26" name="number">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="125" parent="26" name="iscleaned">
+        <state-number>1908</state-number>
+        <data-type>boolean</data-type>
+        <default-expression>true</default-expression>
+      </column>
+      <column id="126" parent="26" name="isavailable">
+        <state-number>1908</state-number>
+        <data-type>boolean</data-type>
+        <default-expression>true</default-expression>
+      </column>
+      <column id="127" parent="26" name="hotelid">
+        <state-number>1908</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="128" parent="26" name="roomcategoryid">
+        <state-number>1908</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <index id="129" parent="26" name="room_pkey">
+        <object-id>131796</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="130" parent="26" name="room_pkey">
+        <columns>id</columns>
+        <underlying-index>room_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="131" parent="26" name="hotel_fk">
+        <columns>hotelid</columns>
+        <ref-key>~.hotel.hotel_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="132" parent="26" name="roomcategory_fk">
+        <columns>roomcategoryid</columns>
+        <ref-key>~.roomcategory.roomcategory_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <check id="133" parent="26" name="number_check">
+        <columns>number</columns>
+        <predicate>number &gt; 0</predicate>
+      </check>
+      <column id="134" parent="27" name="id">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;roomcategory_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="135" parent="27" name="bunks">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="136" parent="27" name="price">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>double precision</data-type>
+      </column>
+      <column id="137" parent="27" name="description">
+        <state-number>1908</state-number>
+        <data-type>text</data-type>
+      </column>
+      <column id="138" parent="27" name="hotelid">
+        <state-number>1908</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <index id="139" parent="27" name="roomcategory_pkey">
+        <object-id>131780</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="140" parent="27" name="roomcategory_pkey">
         <columns>id</columns>
         <underlying-index>roomcategory_pkey</underlying-index>
         <primary>1</primary>
       </key>
+      <foreign-key id="141" parent="27" name="hotel_fk">
+        <columns>hotelid</columns>
+        <ref-key>~.hotel.hotel_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <check id="142" parent="27" name="bunks_check">
+        <columns>bunks</columns>
+        <predicate>bunks &gt; 0</predicate>
+      </check>
+      <check id="143" parent="27" name="price_check">
+        <columns>price</columns>
+        <predicate>price &gt; (0)::double precision</predicate>
+      </check>
+      <column id="144" parent="28" name="weekday">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="145" parent="28" name="date">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="146" parent="28" name="starttime">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>time</data-type>
+      </column>
+      <column id="147" parent="28" name="endtime">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>time</data-type>
+      </column>
+      <column id="148" parent="28" name="employeeid">
+        <state-number>1908</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <index id="149" parent="28" name="workschedule_pk">
+        <object-id>131839</object-id>
+        <columns>weekday
+employeeid
+date</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="150" parent="28" name="workschedule_pk">
+        <columns>weekday
+employeeid
+date</columns>
+        <underlying-index>workschedule_pk</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="151" parent="28" name="employee_fk">
+        <columns>employeeid</columns>
+        <ref-key>~.employee.employee_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <check id="152" parent="28" name="weekday_check">
+        <columns>weekday</columns>
+        <predicate>(weekday &gt; 0) AND (weekday &lt; 8)</predicate>
+      </check>
     </database-model>
   </data-source>
 </component>
