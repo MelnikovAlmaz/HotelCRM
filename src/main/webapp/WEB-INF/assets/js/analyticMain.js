@@ -8,7 +8,9 @@ $(document).ready(function() {
     var today = year + "-" + month;
     $("#monthAnalytic").attr("value", today);
     $("#yearAnalytic").attr("value", year);
+    $("#yearAnalyticTable").attr("value", year);
     
     renderYearChart();
     renderMonthChart();
+    renderMonthTable();
 });

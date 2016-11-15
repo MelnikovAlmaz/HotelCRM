@@ -61,4 +61,15 @@ public class AccountancyController {
 
         return yearIncome;
     }
+
+    @RequestMapping(value = "/search/income_year_month", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    List<List<Double>> incomeYearEachMonth(@RequestParam(value = "date") Integer year) {
+        Employee employee = AdminController.getPrincipal();
+
+        Integer hotelId = departmentService.findDepartmentById(employee.getDepartmentId()).getHotel().getId();
+        List<List<Double>> yearIncome = accountancyService.findEachMonthYearIncomeByHotelId(hotelId, year);
+        return yearIncome;
+    }
 }
