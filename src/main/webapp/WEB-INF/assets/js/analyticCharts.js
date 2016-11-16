@@ -12,7 +12,7 @@ function renderMonthChart() {
                 labels: arr,
                 datasets: [
                     {
-                        label: "Количество заказов в день",
+                        label: "Day income",
                         fill: false,
                         lineTension: 0.1,
                         backgroundColor: "rgba(75,192,192,0.4)",
@@ -52,7 +52,7 @@ function renderYearChart() {
                 labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
                 datasets: [
                     {
-                        label: "Количество заказов в месяц",
+                        label: "Month income",
                         backgroundColor: "rgba(255,99,132,0.2)",
                         borderColor: "rgba(255,99,132,1)",
                         borderWidth: 1,
@@ -121,6 +121,8 @@ function renderMonthTable() {
             tableContent2 += '</tr>';
             tableContent += '</tbody>';
             tableContent2 += '</tbody>';
+            monthTable.empty();
+            monthTable2.empty();
             monthTable.append(tableContent);
             monthTable2.append(tableContent2);
         }

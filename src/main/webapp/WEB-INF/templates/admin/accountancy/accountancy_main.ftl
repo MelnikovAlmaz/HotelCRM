@@ -83,7 +83,7 @@
                         <div class="panel-body row">
                             <div class="col-lg-12">
                                 <input class="form-control" type="number" min="2000" id="yearAnalyticTable">
-                                <button class="form-control btn btn-default">Обновить</button>
+                                <button class="form-control btn btn-default" onclick="renderMonthTable()">Обновить</button>
                                 <div>
                                     <table class="table table-responsive table-bordered table-striped" id="monthTable1">
                                     </table>
