@@ -17,6 +17,7 @@ public class HotelInfoMapper implements RowMapper<HotelInfo> {
         hotel.setPhoneNumber(resultSet.getString("phoneNumber"));
         hotel.setDescription(resultSet.getString("description"));
         hotel.setPrice((int) resultSet.getDouble("price"));
+        hotel.setImageURL(resultSet.getString("imageurl"));
         return hotel;
     }
 }

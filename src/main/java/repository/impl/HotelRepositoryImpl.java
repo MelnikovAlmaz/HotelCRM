@@ -37,15 +37,15 @@ public class HotelRepositoryImpl implements HotelRepository {
     }
 
     @Override
-    public void create(String name, String phoneNumber, String address, String description, Employee employee, City city) {
-        String SQL = "INSERT INTO Hotel (name, phoneNumber, address, description, managerId, cityId) VALUES (?, ?, ?, ?, ?, ?)";
-        jdbcTemplate.update( SQL, name, phoneNumber, address, description, employee.getId(), city.getId());
+    public void create(String name, String phoneNumber, String address, String description, Employee employee, City city, String imageURL) {
+        String SQL = "INSERT INTO Hotel (name, phoneNumber, address, description, managerId, cityId, imageURL) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update( SQL, name, phoneNumber, address, description, employee.getId(), city.getId(), imageURL);
     }
 
     @Override
-    public void update(Integer id, String name, String phoneNumber, String address, String description, Employee employee, City city) {
-        String SQL = "UPDATE Hotel SET name = ?, phoneNumber = ?, address = ?, description = ?, managerId = ?, cityId = ? WHERE id = ?";
-        jdbcTemplate.update( SQL, name, phoneNumber, address, description, employee.getId(), city.getId(), id);
+    public void update(Integer id, String name, String phoneNumber, String address, String description, Employee employee, City city, String imageURL) {
+        String SQL = "UPDATE Hotel SET name = ?, phoneNumber = ?, address = ?, description = ?, managerId = ?, cityId = ?, imageURL = ? WHERE id = ?";
+        jdbcTemplate.update( SQL, name, phoneNumber, address, description, employee.getId(), city.getId(), imageURL, id);
     }
 
     @Override

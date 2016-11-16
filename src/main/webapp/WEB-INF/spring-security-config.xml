@@ -14,6 +14,7 @@
         <intercept-url pattern="/admin/register" access="isAnonymous()"/>
         <intercept-url pattern="/admin/dashboard" access="hasAnyRole('Administrator')"/>
         <intercept-url pattern="/admin/accountancy" access="hasAnyRole('Accountancy')"/>
+        <intercept-url pattern="/admin/**" access="hasAnyRole('Accountancy', 'Administrator')"/>
 
         <form-login
                 login-processing-url="/admin/j_spring_security_check"
@@ -39,10 +40,14 @@
         <intercept-url pattern="/guest/logout" access="hasAnyRole('Guest')"/>
         <intercept-url pattern="/guest/register" access="isAnonymous()"/>
         <intercept-url pattern="/guest/profile" access="hasAnyRole('Guest')"/>
+        <intercept-url pattern="/" access="permitAll()"/>
+        <intercept-url pattern="/assets/**" access="permitAll()"/>
+        <intercept-url pattern="/search/**" access="permitAll()"/>
+        <intercept-url pattern="/**" access="hasAnyRole('Guest')"/>
 
         <form-login
                 login-processing-url="/guest/j_spring_security_check"
-                login-page="/guest/login"
+                login-page="/"
                 default-target-url="/guest/profile"
                 authentication-failure-url="/guest/login?error=1"
                 username-parameter="phoneNumber"

@@ -13,7 +13,7 @@
                     <span>Hotel</span>
                 </div>
                 <div class="panel-body">
-                    <form method="post" action="/admin/dashboard/hotel/${hotel.id}">
+                    <form method="post" action="/admin/dashboard/hotel/${hotel.id}/?${_csrf.parameterName}=${_csrf.token}" enctype="multipart/form-data">
                         <label for="name">Name</label>
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>
@@ -48,9 +48,15 @@
                         <label for="description">Description</label>
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>
-                            <textarea class="form-control" name="description" placeholder="Description">${hotel.description}</textarea>
+                            <textarea class="form-control" name="description"
+                                      placeholder="Description">${hotel.description}</textarea>
                         </div>
-                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                        <label for="image">Hotel photo</label>
+                        <div class="input-group input-margin">
+                            <span class="input-group-addon"></span>
+                            <input type="file" class="form-control" name="image" placeholder="Image"
+                                   <#if hotel.imageURL??>value="${hotel.imageURL}"</#if>/>
+                        </div>
                         <input type="submit" class="btn btn-success" value="Save">
                     </form>
                 </div>

@@ -31,6 +31,7 @@ public class HotelMapper implements RowMapper<Hotel> {
         hotel.setManager(manager);
         City city = cityRepository.findCityById(resultSet.getInt("cityId"));
         hotel.setCity(city);
+        hotel.setImageURL(resultSet.getString("imageurl"));
         return hotel;
     }
 }

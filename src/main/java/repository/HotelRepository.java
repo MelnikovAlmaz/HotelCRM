@@ -13,8 +13,8 @@ import java.util.List;
 public interface HotelRepository {
     Hotel findHotelById(Integer id);
     List<Hotel> findAllHotels();
-    void create(String name, String phoneNumber, String address, String description, Employee manager, City city);
-    void update(Integer id, String name, String phoneNumber, String address, String description, Employee manager, City city);
+    void create(String name, String phoneNumber, String address, String description, Employee manager, City city, String imageURL);
+    void update(Integer id, String name, String phoneNumber, String address, String description, Employee manager, City city, String imageURL);
     void delete(Integer id);
     List<Hotel> findHotelsByName(String name);
     List<HotelInfo> findHotelInfo(String name, LocalDate beginDate, LocalDate endDate, Integer guestNumber);

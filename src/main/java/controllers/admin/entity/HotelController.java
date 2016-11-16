@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import service.HotelService;
+import utils.FileUpload;
 
 import java.util.List;
 
@@ -16,7 +18,9 @@ import java.util.List;
 @RequestMapping(value = "/admin/entity/hotel")
 public class HotelController {
     @Autowired
-    HotelService hotelService;
+    private HotelService hotelService;
+    @Autowired
+    private FileUpload fileUpload;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String mainPage(ModelMap model) {
@@ -37,7 +41,8 @@ public class HotelController {
                            @RequestParam String name,
                            @RequestParam String phoneNumber,
                            @RequestParam String address,
-                           @RequestParam String description) {
+                           @RequestParam String description,
+                           @RequestParam MultipartFile image) {
         try {
             Hotel hotel = new Hotel();
             hotel.setId(id);
@@ -45,7 +50,6 @@ public class HotelController {
             hotel.setPhoneNumber(phoneNumber);
             hotel.setAddress(address);
             hotel.setDescription(description);
-            hotelService.save(hotel);
 
             model.addAttribute("isSuccess", true);
         }
@@ -62,16 +66,22 @@ public class HotelController {
 
     @RequestMapping(value = "/new", method = RequestMethod.POST)
     public String addPage(ModelMap model,
-                           @RequestParam String name,
-                           @RequestParam String phoneNumber,
-                           @RequestParam String address,
-                           @RequestParam String description) {
+                          @RequestParam String name,
+                          @RequestParam String phoneNumber,
+                          @RequestParam String address,
+                          @RequestParam String description,
+                          @RequestParam MultipartFile image) {
         try {
             Hotel hotel = new Hotel();
             hotel.setName(name);
             hotel.setPhoneNumber(phoneNumber);
             hotel.setAddress(address);
             hotel.setDescription(description);
+
+            String imageURL = fileUpload.IMG_URL + "hotel" + hotel.getId();
+            fileUpload.validateImage(image);
+            fileUpload.saveImage(imageURL, image);
+            hotel.setImageURL(imageURL);
             hotelService.save(hotel);
 
             model.addAttribute("isSuccess", true);

@@ -15,13 +15,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import org.springframework.web.multipart.MultipartFile;
 import service.CityService;
 import service.EmployeeService;
 import service.HotelService;
 import service.RoleService;
+import utils.FileUpload;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Controller
@@ -35,11 +37,13 @@ public class AdminController {
     private EmployeeService employeeService;
     @Autowired
     private CityService cityService;
+    @Autowired
+    private FileUpload fileUpload;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String main(ModelMap model) {
         Employee employee = getPrincipal();
-        switch (employee.getRole().getName()){
+        switch (employee.getRole().getName()) {
             case "Accountancy":
                 return "redirect:/admin/accountancy";
             default:
@@ -108,6 +112,47 @@ public class AdminController {
         return "admin/entity/hotel/hotel";
     }
 
+    @RequestMapping(value = "/dashboard/hotel/{id}", method = RequestMethod.POST)
+    public String hotelPost(Model model,
+                            @PathVariable(value = "id") Integer hotelId,
+                            @RequestParam String name,
+                            @RequestParam String phoneNumber,
+                            @RequestParam String address,
+                            @RequestParam(value = "city") Integer cityId,
+                            @RequestParam String description,
+                            @RequestParam(required = false) MultipartFile image) {
+        Employee employee = getPrincipal();
+        if (phoneNumber.length() == 11 && name.length() > 0 && cityId != null && cityId > 0) {
+            try {
+                Hotel hotel = new Hotel();
+                hotel.setId(hotelId);
+                hotel.setName(name);
+                hotel.setPhoneNumber(phoneNumber);
+                City city = cityService.findCityById(cityId);
+                hotel.setCity(city);
+                hotel.setManager(employee);
+                hotel.setAddress(address);
+                hotel.setDescription(description);
+
+                if(image != null) {
+                    String imageURL = fileUpload.IMG_URL + "hotel/" + hotel.getId();
+                    fileUpload.validateImage(image);
+                    fileUpload.saveImage(imageURL, image);
+                    hotel.setImageURL(imageURL);
+                }
+                hotelService.save(hotel);
+                model.addAttribute("isSuccess", true);
+                return "redirect:/admin/dashboard";
+            } catch (Exception e) {
+                e.printStackTrace();
+                model.addAttribute("isSuccess", false);
+                return "redirect:/admin/dashboard/hotel/" + hotelId;
+            }
+        } else {
+            return "redirect:/admin/dashboard/hotel/" + hotelId;
+        }
+    }
+
     @RequestMapping(value = "/dashboard/hotel/new", method = RequestMethod.GET)
     public String newHotel(Model model) {
         Employee employee = getPrincipal();
@@ -124,19 +169,32 @@ public class AdminController {
                                @RequestParam String phoneNumber,
                                @RequestParam String address,
                                @RequestParam(value = "city") Integer cityId,
-                               @RequestParam String description) {
+                               @RequestParam String description,
+                               @RequestParam(required = false) MultipartFile image) {
         Employee employee = getPrincipal();
         if (phoneNumber.length() == 11 && name.length() > 0 && cityId != null && cityId > 0) {
-            Hotel hotel = new Hotel();
-            hotel.setName(name);
-            hotel.setPhoneNumber(phoneNumber);
-            City city = cityService.findCityById(cityId);
-            hotel.setCity(city);
-            hotel.setManager(employee);
-            hotel.setAddress(address);
-            hotel.setDescription(description);
-            hotelService.save(hotel);
+            try {
+                Hotel hotel = new Hotel();
+                hotel.setName(name);
+                hotel.setPhoneNumber(phoneNumber);
+                City city = cityService.findCityById(cityId);
+                hotel.setCity(city);
+                hotel.setManager(employee);
+                hotel.setAddress(address);
+                hotel.setDescription(description);
 
+                if(image != null) {
+                    String imageURL = fileUpload.IMG_URL + "hotel/" + hotel.getId();
+                    fileUpload.validateImage(image);
+                    fileUpload.saveImage(imageURL, image);
+                    hotel.setImageURL(imageURL);
+                }
+                hotelService.save(hotel);
+                model.addAttribute("isSuccess", true);
+            } catch (Exception e) {
+                e.printStackTrace();
+                model.addAttribute("isSuccess", false);
+            }
             return "redirect:/admin/dashboard";
         } else {
             return "redirect:/admin/dashboard/hotel/new";

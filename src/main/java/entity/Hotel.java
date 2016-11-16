@@ -8,6 +8,7 @@ public class Hotel implements Serializable{
     private String phoneNumber;
     private String address;
     private String description;
+    private String imageURL;
     private Employee manager;
     private City city;
 
@@ -49,6 +50,14 @@ public class Hotel implements Serializable{
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
     }
 
     public Employee getManager() {
