@@ -46,6 +46,8 @@ public class AdminController {
         switch (employee.getRole().getName()) {
             case "Accountancy":
                 return "redirect:/admin/accountancy";
+            case "Chef":
+                return "redirect:/admin/restaurant";
             default:
                 return "redirect:/admin/dashboard";
         }
