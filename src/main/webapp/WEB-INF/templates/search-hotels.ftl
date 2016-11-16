@@ -25,11 +25,11 @@
                 <h3>${hotel.name}</h3>
             </div>
             <div>
-                <p class="description_b" >${hotel.description}</p>
+                <p class="description_b" style="font-size:75%;" >${hotel.description}</p>
             </div>
         </div>
         <div class="col-xs-4 padding0">
-            <div style="background: url(/assets/img/hotel/${hotel.id}) center; height: 100%; width: 100%">
+            <div style="background: url(/assets/img/hotel/${hotel.id}) center no-repeat; height: 100%; width: 100%">
 
             </div>
         </div>
