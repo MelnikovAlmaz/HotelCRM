@@ -13,20 +13,18 @@
                 <tr>
                     <th>#</th>
                     <th>Name</th>
-                    <th>Phone Number</th>
-                    <th>Address</th>
+                    <th>Price</th>
                     <th>Edit</th>
                 </tr>
                 </thead>
                 <tbody>
-                <#list hotels as hotel>
+                <#list meals as meal>
                 <tr>
-                    <td>${hotel.id}</td>
-                    <td>${hotel.name}</td>
-                    <td>${hotel.phoneNumber}</td>
-                    <td>${hotel.address}</td>
+                    <td>${meal.id}</td>
+                    <td>${meal.name}</td>
+                    <td>${meal.price}</td>
                     <td>
-                        <a href="/admin/dashboard/hotel/${hotel.id}">
+                        <a href="/admin/dashboard/meal/${meal.id}">
                             <button class="btn btn-warning">View</button>
                         </a>
                     </td>
@@ -34,7 +32,7 @@
                 </tbody>
             </table>
         </main>
-    <#include "rightBar.ftl">
+    <#include "mealRightBar.ftl">
     </div>
 </div>
 </body>

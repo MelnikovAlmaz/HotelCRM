@@ -3,7 +3,7 @@
         <a href="/admin/restaurant">
             <li class="list-group-item">Menus</li>
         </a>
-        <a href="#">
+        <a href="/admin/restaurant/meals">
             <li class="list-group-item">Meals</li>
         </a>
     </ul>

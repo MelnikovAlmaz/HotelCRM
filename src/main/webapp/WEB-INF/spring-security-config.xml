@@ -10,11 +10,12 @@
 
     <http authentication-manager-ref="authenticationManagerAdmin" pattern="/admin/**" auto-config="true" use-expressions="true">
         <intercept-url pattern="/admin/login" access="isAnonymous()"/>
-        <intercept-url pattern="/admin/logout" access="hasAnyRole('Administrator', 'Accountancy')"/>
+        <intercept-url pattern="/admin/logout" access="hasAnyRole('Administrator', 'Accountancy', 'Chef')"/>
         <intercept-url pattern="/admin/register" access="isAnonymous()"/>
-        <intercept-url pattern="/admin/dashboard" access="hasAnyRole('Administrator')"/>
-        <intercept-url pattern="/admin/accountancy" access="hasAnyRole('Accountancy')"/>
-        <intercept-url pattern="/admin/**" access="hasAnyRole('Accountancy', 'Administrator')"/>
+        <intercept-url pattern="/admin/dashboard/**" access="hasAnyRole('Administrator')"/>
+        <intercept-url pattern="/admin/accountancy/**" access="hasAnyRole('Accountancy')"/>
+        <intercept-url pattern="/admin/restaurant/**" access="hasAnyRole('Chef')"/>
+        <intercept-url pattern="/admin/**" access="hasAnyRole('Accountancy', 'Administrator', 'Chef')"/>
 
         <form-login
                 login-processing-url="/admin/j_spring_security_check"
