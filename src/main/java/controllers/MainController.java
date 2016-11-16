@@ -135,6 +135,7 @@ public class MainController {
         try {
             orderService.save(order);
         } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             Hotel hotel = hotelService.findHotelById(hotelId);
             List<RoomCategory> roomCategories = roomCategoryService.findAllRoomCategoriesByHotelId(hotelId);

@@ -14,7 +14,7 @@
                     <th>#</th>
                     <th>Name</th>
                     <th>Price</th>
-                    <th>Edit</th>
+                    <th>View</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -24,7 +24,7 @@
                     <td>${meal.name}</td>
                     <td>${meal.price}</td>
                     <td>
-                        <a href="/admin/dashboard/meal/${meal.id}">
+                        <a href="/admin/restaurant/${menu.id}/meal/${meal.id}">
                             <button class="btn btn-warning">View</button>
                         </a>
                     </td>
