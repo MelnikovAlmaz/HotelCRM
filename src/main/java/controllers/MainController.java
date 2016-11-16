@@ -157,4 +157,14 @@ public class MainController {
         List<String> hotelNames = hotelService.findHotelsByName(name);
         return hotelNames;
     }
+
+
+    @RequestMapping(value = "/myorders", method = RequestMethod.GET)
+    public String myOrdersPage(ModelMap model) {
+        Guest guest = ClientController.getPrincipal();
+        List<Order> orders = orderService.findOrdersByGuest(guest);
+        model.addAttribute("user", guest);
+        model.addAttribute("myOrders", orders);
+        return "order-page";
+    }
 }

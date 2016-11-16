@@ -7,7 +7,7 @@
                 <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">Profile <span class="caret"></span></button>
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="#" data-toggle="modal" data-target="#account">My account</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#orders">My orders</a></li>
+                    <li><a href="/myorders" >My orders</a></li>
                     <li class="divider"></li>
                     <li><a href="/guest/logout" >Log out</a></li>
                 </ul>
