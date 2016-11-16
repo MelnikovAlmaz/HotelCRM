@@ -167,4 +167,35 @@ public class MainController {
         model.addAttribute("myOrders", orders);
         return "order-page";
     }
+
+    @RequestMapping(value = "/myorders/{id}/delete", method = RequestMethod.GET)
+    public String orderDeletePage(ModelMap model,
+                                  @PathVariable Integer id) {
+        Guest guest = ClientController.getPrincipal();
+        Order order = orderService.findOrderById(id);
+        if(order.getGuest().getId() == guest.getId()) {
+            orderService.delete(order);
+        }
+        return "redirect:/myorders";
+    }
+
+    @RequestMapping(value = "/myorders/{id}", method = RequestMethod.POST)
+    public String orderUpdate(ModelMap model,
+                              @PathVariable Integer id,
+                              @RequestParam String beginDate,
+                              @RequestParam String endDate) {
+        Guest guest = ClientController.getPrincipal();
+        Order order = orderService.findOrderById(id);
+        if(order.getGuest().getId() == guest.getId()) {
+            LocalDate bDate = LocalDate.parse(beginDate);
+            Date begin = Date.valueOf(bDate);
+            LocalDate eDate = LocalDate.parse(endDate);
+            Date end = Date.valueOf(eDate);
+
+            order.setBeginDate(begin);
+            order.setEndDate(end);
+            orderService.save(order);
+        }
+        return "redirect:/myorders";
+    }
 }
