@@ -29,10 +29,8 @@
             </div>
         </div>
         <div class="col-xs-4 padding0">
-            <div style="background-color: lavenderblush; height: 100%; width: 100%">
-                <#if hotel.imageURL??>
-                    <img src="/assets/img/hotel/${hotel.id}">
-                </#if>
+            <div style="background: url(/assets/img/hotel/${hotel.id}) center; height: 100%; width: 100%">
+
             </div>
         </div>
     </div>
