@@ -7,8 +7,8 @@
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="org.postgresql.Driver" />
         <property name="url" value="jdbc:postgresql://localhost:5432/Hotel" />
-        <property name="username" value="postgres" />
-        <property name="password" value="537733a" />
+        <property name="username" value="tomcat" />
+        <property name="password" value="tomcat" />
     </bean>
 
     <bean id="JdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
