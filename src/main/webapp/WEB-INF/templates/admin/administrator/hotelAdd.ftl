@@ -29,7 +29,7 @@
                             <div class="input-group input-margin">
                                 <select class="form-control" size="1" name="city">
                                 <#list cities as city>
-                                    <option value="${city.id}">${city.name}</option>
+                                    <option value="${city.id?c}">${city.name}</option>
                                 </#list>
                                 </select>
                             </div>

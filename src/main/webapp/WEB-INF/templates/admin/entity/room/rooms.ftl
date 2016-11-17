@@ -22,7 +22,7 @@
                 <tbody>
                 <#list rooms as room>
                 <tr>
-                    <td>${room.id}</td>
+                    <td>${room.id?c}</td>
                     <td>${room.number}</td>
                     <td><#if room.cleaned>
                         <span class="glyphicon glyphicon-ok-circle"></span>
@@ -37,7 +37,7 @@
                     </#if></td>
                     <td>${room.category.name}</td>
                     <td>
-                        <a href="/admin/entity/${hotel.id}/room/${room.id}">
+                        <a href="/admin/entity/${hotel.id?c}/room/${room.id?c}">
                             <button class="btn btn-warning">View</button>
                         </a>
                     </td>

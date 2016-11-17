@@ -17,7 +17,7 @@
                 <span>${hotel.price}</span>
             </div>
             <div>
-                <a href="/search/${hotel.id}?beginDate=${beginDate}&endDate=${endDate}&guestNumber=${guestNumber}"> <button class="btn btn-warning">Choose room</button> </a>
+                <a href="/search/${hotel.id?c}?beginDate=${beginDate}&endDate=${endDate}&guestNumber=${guestNumber}"> <button class="btn btn-warning">Choose room</button> </a>
             </div>
         </div>
         <div class="col-xs-5">
@@ -29,7 +29,7 @@
             </div>
         </div>
         <div class="col-xs-4 padding0">
-            <div style="background: url(/assets/img/hotel/${hotel.id}) center no-repeat; height: 100%; width: 100%">
+            <div style="background: url(/assets/img/hotel/${hotel.id?c}) center no-repeat; height: 100%; width: 100%">
 
             </div>
         </div>

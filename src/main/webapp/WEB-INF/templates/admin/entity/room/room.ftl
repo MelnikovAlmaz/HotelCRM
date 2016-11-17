@@ -13,7 +13,7 @@
                     <span>Room</span>
                 </div>
                 <div class="panel-body">
-                    <form method="post" action="/admin/entity/${hotel.id}/room/${room.id}">
+                    <form method="post" action="/admin/entity/${hotel.id?c}/room/${room.id?c}">
                         <label for="number">Number</label>
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>
@@ -34,8 +34,8 @@
                                 <select class="form-control" size="1" name="category">
                                 <#list categories as category>
                                     <option
-                                        <#if room.category.id == category.id>selected</#if>
-                                        value="${category.id}">${category.name}</option>
+                                        <#if room.category.id?c == category.id?c>selected</#if>
+                                        value="${category.id?c}">${category.name}</option>
                                 </#list>
                                 </select>
                             </div>
@@ -55,7 +55,7 @@
                                 <div class="form-group">
                                     <input type="date" class="form-control" id="endDate"/>
                                 </div>
-                                <input type="hidden" value="${room.id}" id="roomId"/>
+                                <input type="hidden" value="${room.id?c}" id="roomId"/>
                                 <input type="button" class="btn btn-default" value="Refresh" onclick="room_occupancy()">
                             </div>
                             <div class="col-xs-1">

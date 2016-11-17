@@ -13,7 +13,7 @@
                     <span>New Room Category</span>
                 </div>
                 <div class="panel-body">
-                    <form method="post" action="/admin/entity/${hotel.id}/roomcategory/new">
+                    <form method="post" action="/admin/entity/${hotel.id?c}/roomcategory/new">
                         <label for="name">Name</label>
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>

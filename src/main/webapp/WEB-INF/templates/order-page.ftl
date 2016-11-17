@@ -9,8 +9,8 @@
     <section class="col-lg-offset-2 col-lg-8">
         <#list myOrders as order>
             <div class="row">
-                <form action="/myorders/${order.id}" method="post">
-                    <h3>Order № ${order.id}: </h3>
+                <form action="/myorders/${order.id?c}" method="post">
+                    <h3>Order № ${order.id?c}: </h3>
                     <h4>Hotel: ${order.getRoom().getCategory().getHotel().getName()}</h4>
                     <div class="form-group">
                         <label for="begin-date">Begin date</label>
@@ -25,7 +25,7 @@
                     <br>
                     <h4>Price: ${order.getPrice()}</h4>
                     <div class="modal-footer">
-                        <a href="/myorders/${order.id}/delete">
+                        <a href="/myorders/${order.id?c}/delete">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel order</button>
                         </a>
                         <button type="submit" class="btn btn-primary">Save changes</button>

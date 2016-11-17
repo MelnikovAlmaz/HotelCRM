@@ -13,7 +13,7 @@
                     <span>New Employee</span>
                 </div>
                 <div class="panel-body">
-                    <form method="post" action="/admin/entity/${hotel.id}/employee/new">
+                    <form method="post" action="/admin/entity/${hotel.id?c}/employee/new">
                         <label for="name">Name</label>
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>
@@ -33,7 +33,7 @@
                         <div class="input-group input-margin">
                             <select class="form-control" size="1" name="role">
                             <#list roles as role>
-                                <option value="${role.id}">${role.name}</option>
+                                <option value="${role.id?c}">${role.name}</option>
                             </#list>
                             </select>
                         </div>
@@ -55,7 +55,7 @@
                             <div class="input-group input-margin">
                                 <select class="form-control" size="1" name="departmentId">
                                 <#list departments as department>
-                                    <option value="${department.id}">${department.name}</option>
+                                    <option value="${department.id?c}">${department.name}</option>
                                 </#list>
                                 </select>
                             </div>

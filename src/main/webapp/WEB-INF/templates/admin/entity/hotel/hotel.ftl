@@ -13,7 +13,7 @@
                     <span>Hotel</span>
                 </div>
                 <div class="panel-body">
-                    <form method="post" action="/admin/dashboard/hotel/${hotel.id}/?${_csrf.parameterName}=${_csrf.token}" enctype="multipart/form-data">
+                    <form method="post" action="/admin/dashboard/hotel/${hotel.id?c}/?${_csrf.parameterName}=${_csrf.token}" enctype="multipart/form-data">
                         <label for="name">Name</label>
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>
@@ -32,8 +32,8 @@
                                 <select class="form-control" size="1" name="city">
                                 <#list cities as city>
                                     <option
-                                        <#if hotel.city.id == city.id>selected</#if>
-                                        value="${city.id}">${city.name}
+                                        <#if hotel.city.id?c == city.id?c>selected</#if>
+                                        value="${city.id?c}">${city.name}
                                     </option>
                                 </#list>
                                 </select>

@@ -21,12 +21,12 @@
                 <tbody>
                 <#list hotels as hotel>
                 <tr>
-                    <td>${hotel.id}</td>
+                    <td>${hotel.id?c}</td>
                     <td>${hotel.name}</td>
                     <td>${hotel.phoneNumber}</td>
                     <td>${hotel.address}</td>
                     <td>
-                        <a href="/admin/dashboard/hotel/${hotel.id}">
+                        <a href="/admin/dashboard/hotel/${hotel.id?c}">
                             <button class="btn btn-warning">View</button>
                         </a>
                     </td>

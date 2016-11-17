@@ -21,12 +21,12 @@
                 <tbody>
                 <#list roomcategories as roomcategory>
                 <tr>
-                    <td>${roomcategory.id}</td>
+                    <td>${roomcategory.id?c}</td>
                     <td>${roomcategory.name}</td>
                     <td>${roomcategory.beds}</td>
                     <td>${roomcategory.price}</td>
                     <td>
-                        <a href="/admin/entity/${hotel.id}/roomcategory/${roomcategory.id}">
+                        <a href="/admin/entity/${hotel.id?c}/roomcategory/${roomcategory.id?c}">
                             <button class="btn btn-warning">View</button>
                         </a>
                     </td>

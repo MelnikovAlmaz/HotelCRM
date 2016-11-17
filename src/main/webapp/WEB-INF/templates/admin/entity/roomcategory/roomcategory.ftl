@@ -13,7 +13,7 @@
                     <span>Room Category</span>
                 </div>
                 <div class="panel-body">
-                    <form method="post" action="/admin/entity/${hotel.id}/roomcategory/${roomcategory.id}">
+                    <form method="post" action="/admin/entity/${hotel.id?c}/roomcategory/${roomcategory.id?c}">
                         <label for="name">Name</label>
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>
@@ -29,7 +29,7 @@
                         <label for="price">Price</label>
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>
-                            <input type="number" step="0.1" class="form-control" name="price" placeholder="Price" value=${roomcategory.price}>
+                            <input type="number" step="0.1" class="form-control" name="price" placeholder="Price" value=${roomcategory.price?c}>
                         </div>
                         <label for="description">Description</label>
                         <div class="input-group input-margin">

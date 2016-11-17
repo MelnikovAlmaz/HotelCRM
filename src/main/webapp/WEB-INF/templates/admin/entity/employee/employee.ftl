@@ -13,7 +13,7 @@
                     <span>Employee</span>
                 </div>
                 <div class="panel-body">
-                    <form method="post" action="/admin/entity/${hotel.id}/employee/${employee.id}">
+                    <form method="post" action="/admin/entity/${hotel.id?c}/employee/${employee.id?c}">
                         <label for="name">Name</label>
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>
@@ -36,8 +36,8 @@
                         <div class="input-group input-margin">
                             <select class="form-control" size="1" name="role">
                             <#list roles as role>
-                                <option <#if employee.role.id == role.id>selected</#if>
-                                        value="${role.id}">${role.name}</option>
+                                <option <#if employee.role.id?c == role.id?c>selected</#if>
+                                        value="${role.id?c}">${role.name}</option>
                             </#list>
                             </select>
                         </div>
@@ -45,7 +45,7 @@
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>
                             <input type="number" step="0.1" min="1" class="form-control" name="salary"
-                                   placeholder="Salary" value=${employee.salary}>
+                                   placeholder="Salary" value=${employee.salary?c}>
                         </div>
                         <label class="control-label" for="salaryType">Salary Type</label>
                         <div class="input-group input-margin">
@@ -59,8 +59,8 @@
                             <div class="input-group input-margin">
                                 <select class="form-control" size="1" name="departmentId">
                                 <#list departments as department>
-                                    <option <#if employeeDepartment.id == department.id>selected</#if>
-                                            value="${department.id}">${department.name}</option>
+                                    <option <#if employeeDepartment.id?c == department.id?c>selected</#if>
+                                            value="${department.id?c}">${department.name}</option>
                                 </#list>
                                 </select>
                             </div>
@@ -80,7 +80,7 @@
                                     <span>${workschedule.weekday}</span>
                                     </div>
                                     <div class="panel-body">
-                                        <form action="/admin/entity/${hotel.id}/employee/${employee.id}/workschedule/${workschedule.weekday}" method="post">
+                                        <form action="/admin/entity/${hotel.id?c}/employee/${employee.id?c}/workschedule/${workschedule.weekday}" method="post">
                                             <div class="form-group">
                                                 <input type="time" class="form-control" name="beginTime"
                                                        value="${workschedule.startTime?time?string("HH:mm")}"/>

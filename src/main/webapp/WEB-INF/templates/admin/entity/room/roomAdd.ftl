@@ -13,7 +13,7 @@
                     <span>New Room Category</span>
                 </div>
                 <div class="panel-body">
-                    <form method="post" action="/admin/entity/${hotel.id}/room/new">
+                    <form method="post" action="/admin/entity/${hotel.id?c}/room/new">
                         <label for="number">Number</label>
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>
@@ -24,7 +24,7 @@
                         <div class="input-group input-margin">
                             <select class="form-control" size="1" name="category">
                             <#list categories as category>
-                                <option value="${category.id}">${category.name}</option>
+                                <option value="${category.id?c}">${category.name}</option>
                             </#list>
                             </select>
                         </div>

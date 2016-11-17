@@ -20,11 +20,11 @@
                 <tbody>
                 <#list departments as department>
                 <tr>
-                    <td>${department.id}</td>
+                    <td>${department.id?c}</td>
                     <td>${department.name}</td>
                     <td><#if department.manager??>${department.manager.name}(${department.manager.role.name})</#if></td>
                     <td>
-                        <a href="/admin/entity/${hotel.id}/department/${department.id}">
+                        <a href="/admin/entity/${hotel.id?c}/department/${department.id?c}">
                             <button class="btn btn-warning">View</button>
                         </a>
                     </td>

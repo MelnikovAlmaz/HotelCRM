@@ -13,7 +13,7 @@
                     <span>New Meal</span>
                 </div>
                 <div class="panel-body">
-                    <form method="post" action="/admin/restaurant/${menu.id}/new">
+                    <form method="post" action="/admin/restaurant/${menu.id?c}/new">
                         <label for="name">Name</label>
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>

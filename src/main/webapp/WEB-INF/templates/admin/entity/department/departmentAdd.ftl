@@ -13,7 +13,7 @@
                     <span>New Department</span>
                 </div>
                 <div class="panel-body">
-                    <form method="post" action="/admin/entity/${hotel.id}/department/new">
+                    <form method="post" action="/admin/entity/${hotel.id?c}/department/new">
                         <label for="name">Name</label>
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>
@@ -24,7 +24,7 @@
                         <div class="input-group input-margin">
                             <select class="form-control" size="1" name="manager">
                             <#list employees as employee>
-                                <option value="${employee.id}">${employee.name} - ${employee.role.name}</option>
+                                <option value="${employee.id?c}">${employee.name} - ${employee.role.name}</option>
                             </#list>
                             </select>
                         </div>

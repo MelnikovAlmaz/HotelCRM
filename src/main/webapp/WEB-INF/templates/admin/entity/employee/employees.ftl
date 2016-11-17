@@ -21,12 +21,12 @@
                 <tbody>
                 <#list employees as employee>
                 <tr>
-                    <td>${employee.id}</td>
+                    <td>${employee.id?c}</td>
                     <td>${employee.name}</td>
                     <td>${employee.phoneNumber}</td>
                     <td>${employee.role.name}</td>
                     <td>
-                        <a href="/admin/entity/${hotel.id}/employee/${employee.id}">
+                        <a href="/admin/entity/${hotel.id?c}/employee/${employee.id?c}">
                             <button class="btn btn-warning">View</button>
                         </a>
                     </td>
