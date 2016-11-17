@@ -18,4 +18,6 @@ public interface EmployeeRepository {
     List<Employee> findAllEmployees();
 
     Employee findEmployeeByPhoneNumber(String phoneNumber);
+
+    List<Employee> findAllEmployeesByHotelId(Integer hotelId);
 }

@@ -56,4 +56,11 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
         Employee employee = jdbcTemplate.queryForObject(SQL, new Object[]{phoneNumber}, employeeMapper);
         return employee;
     }
+
+    @Override
+    public List<Employee> findAllEmployeesByHotelId(Integer hotelId) {
+        String SQL = "SELECT * FROM Employee as e where (SELECT hotelId from department where id = e.departmentId) = ? ORDER BY id ASC";
+        List<Employee> employees = jdbcTemplate.query(SQL, new Object[]{hotelId}, employeeMapper);
+        return employees;
+    }
 }

@@ -1,10 +1,7 @@
 package controllers.admin.entity;
 
 import controllers.admin.AdminController;
-import entity.Department;
-import entity.Employee;
-import entity.Hotel;
-import entity.Role;
+import entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -12,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import repository.WorkscheduleRepository;
 import service.DepartmentService;
 import service.EmployeeService;
 import service.HotelService;
@@ -30,6 +28,8 @@ public class EmployeeController {
     private RoleService roleService;
     @Autowired
     private DepartmentService departmentService;
+    @Autowired
+    private WorkscheduleRepository workscheduleRepository;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String mainPage(ModelMap model, @PathVariable Integer hotelId) {
@@ -51,7 +51,9 @@ public class EmployeeController {
         Department employeeDepartment = departmentService.findDepartmentById(employee.getDepartmentId());
         List<Role> roles = roleService.findAllRoles();
         List<Department> departments = departmentService.findAllDepartmentsByHotelId(hotelId);
+        List<WorkSchedule> workSchedules = workscheduleRepository.findWorkScheduleByEmployeeId(employee.getId());
 
+        model.addAttribute("workSchedules", workSchedules);
         model.addAttribute("employeeDepartment", employeeDepartment);
         model.addAttribute("departments", departments);
         model.addAttribute("roles", roles);
