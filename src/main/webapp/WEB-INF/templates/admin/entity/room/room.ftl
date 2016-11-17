@@ -48,7 +48,7 @@
                             <label class="control-label">Occupancy</label>
                         </div>
                         <div class="panel-body row">
-                            <div class="col-xs-3">
+                            <div class="col-xs-4">
                                 <div class="form-group">
                                     <input type="date" class="form-control" id="beginDate"/>
                                 </div>

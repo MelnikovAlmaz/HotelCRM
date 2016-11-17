@@ -18,7 +18,7 @@
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>
                             <input type="text" class="form-control" name="name" placeholder="Name"
-                            value=${employee.name}>
+                                   value=${employee.name}>
                         </div>
                         <label for="phoneNumber">Phone Number</label>
                         <div class="input-group input-margin">
@@ -59,7 +59,8 @@
                             <div class="input-group input-margin">
                                 <select class="form-control" size="1" name="departmentId">
                                 <#list departments as department>
-                                    <option <#if employeeDepartment.id == department.id>selected</#if> value="${department.id}">${department.name}</option>
+                                    <option <#if employeeDepartment.id == department.id>selected</#if>
+                                            value="${department.id}">${department.name}</option>
                                 </#list>
                                 </select>
                             </div>
@@ -67,6 +68,34 @@
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                         <input type="submit" class="btn btn-success" value="Save">
                     </form>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            WorkSchedule
+                        </div>
+                        <div class="panel-body">
+                        <#if workschedules??>
+                            <#list workschedules as workschedule>
+                                <div class="col-md-3 panel">
+                                    <div class="panel-heading">
+                                    ${workschedule.weekday}
+                                    </div>
+                                    <div class="panel-body">
+                                        <form action="/admin/entity/workschedule/${workschedule.id}"
+                                        <div class="form-group">
+                                            <input type="time" class="form-control" name="beginDate"
+                                                   value="${workschedule.startTime}"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="time" class="form-control" name="endDate"
+                                                   value="${workschedule.endTime}"/>
+                                        </div>
+                                        <button type="submit" class="btn btn-success">Edit</button>
+                                    </div>
+                                </div>
+                            </#list>
+                        </#if>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
