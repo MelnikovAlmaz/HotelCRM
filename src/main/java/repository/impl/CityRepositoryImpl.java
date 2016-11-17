@@ -43,14 +43,14 @@ public class CityRepositoryImpl implements CityRepository {
 
     @Override
     public List<City> findAllCities() {
-        String SQL = "SELECT * FROM City ORDER BY id ASC";
+        String SQL = "SELECT * FROM City ORDER BY name ASC";
         List<City> cities = jdbcTemplate.query(SQL, cityMapper);
         return cities;
     }
 
     @Override
     public City findCityByName(String name) {
-        String SQL = "SELECT * FROM City WHERE name = ?";
+        String SQL = "SELECT * FROM City WHERE name = ? ORDER BY name ASC";
         City city = jdbcTemplate.queryForObject(SQL, new Object[]{name}, cityMapper);
         return city;
     }

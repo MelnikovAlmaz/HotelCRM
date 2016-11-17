@@ -8,6 +8,21 @@ function renderMonthChart() {
             for (var i = 0; i < 31; i++) {
                 arr[i] = i + 1;
             }
+            var max = data[0];
+            var min = data[0];
+            var avg = 0;
+            for (i = 0; i < 31; i++){
+                if(max < data[i]) max = data[i];
+                if(min > data[i]) min = data[i];
+                avg += data[i];
+            }
+            avg /= 31;
+            $("#monthMax").empty();
+            $("#monthMin").empty();
+            $("#monthAvg").empty();
+            $("#monthMax").append(max);
+            $("#monthMin").append(min);
+            $("#monthAvg").append(avg);
             var monthData = {
                 labels: arr,
                 datasets: [
@@ -48,6 +63,21 @@ function renderYearChart() {
         data: {"date": $("#yearAnalytic").val()},
         dataType: "json",
         success: function (data, textStatus) {
+            var max = data[0];
+            var min = data[0];
+            var avg = 0;
+            for (i = 0; i < 12; i++){
+                if(max < data[i]) max = data[i];
+                if(min > data[i]) min = data[i];
+                avg += data[i];
+            }
+            avg /= 12;
+            $("#yearMax").empty();
+            $("#yearMin").empty();
+            $("#yearAvg").empty();
+            $("#yearMax").append(max);
+            $("#yearMin").append(min);
+            $("#yearAvg").append(avg);
             var yearData = {
                 labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
                 datasets: [

@@ -39,7 +39,7 @@
     <http authentication-manager-ref="authenticationManagerGuest" pattern="/**" auto-config="true" use-expressions="true">
         <intercept-url pattern="/guest/login" access="isAnonymous()"/>
         <intercept-url pattern="/guest/logout" access="hasAnyRole('Guest')"/>
-        <intercept-url pattern="/guest/register" access="isAnonymous()"/>
+        <intercept-url pattern="/guest/signUp" access="isAnonymous()"/>
         <intercept-url pattern="/guest/profile" access="hasAnyRole('Guest')"/>
         <intercept-url pattern="/" access="permitAll()"/>
         <intercept-url pattern="/favicon.ico" access="permitAll()"/>

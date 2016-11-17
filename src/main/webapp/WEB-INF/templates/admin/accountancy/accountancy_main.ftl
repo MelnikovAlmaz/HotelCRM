@@ -33,15 +33,15 @@
                             <div class="col-lg-4">
                                 <ul class="list-group">
                                     <li class="list-group-item">
-                                        <span class="badge">14</span>
+                                        <span class="badge" id="monthMax">14</span>
                                         <span>Max</span>
                                     </li>
                                     <li class="list-group-item">
-                                        <span class="badge">14</span>
+                                        <span class="badge" id="monthMin">14</span>
                                         <span>Min</span>
                                     </li>
                                     <li class="list-group-item">
-                                        <span class="badge">14</span>
+                                        <span class="badge" id="monthAvg">14</span>
                                         <span>Average</span>
                                     </li>
                                 </ul>
@@ -61,15 +61,15 @@
                             <div class="col-lg-4">
                                 <ul class="list-group">
                                     <li class="list-group-item">
-                                        <span class="badge">14</span>
+                                        <span class="badge" id="yearMax">14</span>
                                         <span>Max</span>
                                     </li>
                                     <li class="list-group-item">
-                                        <span class="badge">14</span>
+                                        <span class="badge" id="yearMin">14</span>
                                         <span>Min</span>
                                     </li>
                                     <li class="list-group-item">
-                                        <span class="badge">14</span>
+                                        <span class="badge" id="yearAvg">14</span>
                                         <span>Average</span>
                                     </li>
                                 </ul>
