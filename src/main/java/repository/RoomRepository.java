@@ -4,6 +4,7 @@ import entity.Hotel;
 import entity.Room;
 import entity.RoomCategory;
 
+import java.sql.Date;
 import java.util.List;
 
 public interface RoomRepository {
@@ -14,4 +15,6 @@ public interface RoomRepository {
     List<Room> findAllRooms();
 
     List<Room> findAllRoomsByCategoryId(Integer roomCategoryId);
+
+    Integer findRoomOrderedDays(Integer id, Date beginDate, Date endDate);
 }

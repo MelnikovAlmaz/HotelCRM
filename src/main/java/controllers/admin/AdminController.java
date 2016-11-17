@@ -1,9 +1,6 @@
 package controllers.admin;
 
-import entity.City;
-import entity.Employee;
-import entity.Hotel;
-import entity.Role;
+import entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -11,19 +8,16 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import service.CityService;
-import service.EmployeeService;
-import service.HotelService;
-import service.RoleService;
+import service.*;
 import utils.FileUpload;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 @Controller
@@ -37,6 +31,8 @@ public class AdminController {
     private EmployeeService employeeService;
     @Autowired
     private CityService cityService;
+    @Autowired
+    private RoomService roomService;
     @Autowired
     private FileUpload fileUpload;
 
@@ -203,9 +199,21 @@ public class AdminController {
         }
     }
 
-    @RequestMapping(value = "/entity", method = RequestMethod.GET)
-    public String entityPage(ModelMap model) {
-        return "redirect:/admin/entity/hotels";
+    @RequestMapping(value = "/analytic/room/occupancy", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    Double roomOccupancy(ModelMap model,
+                    @RequestParam Integer id,
+                    @RequestParam String beginDate,
+                    @RequestParam String endDate) {
+        Room room = roomService.findRoomById(id);
+        LocalDate bDate = LocalDate.parse(beginDate);
+        Date begin = Date.valueOf(bDate);
+        LocalDate eDate = LocalDate.parse(endDate);
+        Date end = Date.valueOf(eDate);
+        Integer occupancy = roomService.findRoomOrderedDays(room, begin, end);
+        long dayCount = bDate.until(eDate, ChronoUnit.DAYS);
+        return (double)occupancy * 100 / (double)dayCount;
     }
 
     public static Employee getPrincipal() {

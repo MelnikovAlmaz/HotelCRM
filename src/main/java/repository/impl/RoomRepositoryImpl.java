@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import repository.RoomRepository;
 import repository.mapper.RoomMapper;
 
+import java.sql.Date;
 import java.util.List;
 
 @Repository
@@ -55,5 +56,12 @@ public class RoomRepositoryImpl implements RoomRepository {
         String SQL = "SELECT * FROM Room WHERE roomCategoryId = ? ORDER BY number ASC";
         List<Room> rooms = jdbcTemplate.query(SQL, new Object[]{roomCategoryId}, roomMapper);
         return rooms;
+    }
+
+    @Override
+    public Integer findRoomOrderedDays(Integer id, Date beginDate, Date endDate) {
+        String SQL = "SELECT * FROM room_ordered_days(?, ?, ?)";
+        Integer dayCount = jdbcTemplate.queryForInt(SQL, new Object[]{id, beginDate, endDate});
+        return dayCount;
     }
 }

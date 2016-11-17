@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import repository.RoomRepository;
 import service.RoomService;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -65,5 +66,10 @@ public class RoomServiceImpl implements RoomService{
             }
         }
         return freeRoom;
+    }
+
+    @Override
+    public Integer findRoomOrderedDays(Room room, Date beginDate, Date endDate) {
+        return roomRepository.findRoomOrderedDays(room.getId(), beginDate, endDate);
     }
 }
