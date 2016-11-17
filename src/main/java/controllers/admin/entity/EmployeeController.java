@@ -15,6 +15,8 @@ import service.EmployeeService;
 import service.HotelService;
 import service.RoleService;
 
+import java.sql.Time;
+import java.time.LocalTime;
 import java.util.List;
 
 @Controller
@@ -94,6 +96,27 @@ public class EmployeeController {
         return "redirect:/admin/entity/" + hotelId +"/employee/" + id;
     }
 
+    @RequestMapping(value = "/{id}/workschedule/{wId}", method = RequestMethod.POST)
+    public String editPage(ModelMap model,
+                           @PathVariable Integer hotelId,
+                           @PathVariable Integer id,
+                           @PathVariable Integer wId,
+                           @RequestParam String beginTime,
+                           @RequestParam String endTime){
+        List<WorkSchedule> workSchedules = workscheduleRepository.findWorkScheduleByEmployeeId(id);
+        WorkSchedule workSchedule = workSchedules.get(wId - 1);
+
+        LocalTime bDate = LocalTime.parse(beginTime);
+        Time begin = Time.valueOf(bDate);
+        LocalTime eDate = LocalTime.parse(endTime);
+        Time end = Time.valueOf(eDate);
+
+        workSchedule.setStartTime(begin);
+        workSchedule.setEndTime(end);
+
+        workscheduleRepository.update(workSchedule.getWeekday(), workSchedule.getStartTime(), workSchedule.getEndTime(), workSchedule.getEmployeeId());
+        return "redirect:/admin/entity/" + hotelId +"/employee/" + id;
+    }
     @RequestMapping(value = "/new", method = RequestMethod.GET)
     public String addPage(ModelMap model, @PathVariable Integer hotelId) {
         Hotel hotel = hotelService.findHotelById(hotelId);

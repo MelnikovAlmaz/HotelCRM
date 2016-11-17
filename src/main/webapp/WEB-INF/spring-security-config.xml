@@ -42,6 +42,7 @@
         <intercept-url pattern="/guest/register" access="isAnonymous()"/>
         <intercept-url pattern="/guest/profile" access="hasAnyRole('Guest')"/>
         <intercept-url pattern="/" access="permitAll()"/>
+        <intercept-url pattern="/favicon.ico" access="permitAll()"/>
         <intercept-url pattern="/assets/**" access="permitAll()"/>
         <intercept-url pattern="/search/**" access="permitAll()"/>
         <intercept-url pattern="/**" access="hasAnyRole('Guest')"/>

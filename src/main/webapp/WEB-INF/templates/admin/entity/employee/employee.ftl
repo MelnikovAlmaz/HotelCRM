@@ -45,7 +45,7 @@
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>
                             <input type="number" step="0.1" min="1" class="form-control" name="salary"
-                                   placeholder="Salary" value=${employee.salary?number}>
+                                   placeholder="Salary" value=${employee.salary}>
                         </div>
                         <label class="control-label" for="salaryType">Salary Type</label>
                         <div class="input-group input-margin">
@@ -80,15 +80,16 @@
                                     <span>${workschedule.weekday}</span>
                                     </div>
                                     <div class="panel-body">
-                                        <form action="/admin/entity/workschedule/${workschedule.weekday}">
+                                        <form action="/admin/entity/${hotel.id}/employee/${employee.id}/workschedule/${workschedule.weekday}" method="post">
                                             <div class="form-group">
-                                                <input type="time" class="form-control" name="beginDate"
+                                                <input type="time" class="form-control" name="beginTime"
                                                        value="${workschedule.startTime?time?string("HH:mm")}"/>
                                             </div>
                                             <div class="form-group">
-                                                <input type="time" class="form-control" name="endDate"
+                                                <input type="time" class="form-control" name="endTime"
                                                        value="${workschedule.endTime?time?string("HH:mm")}"/>
                                             </div>
+                                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                             <button type="submit" class="btn btn-success">Edit</button>
                                         </form>
                                     </div>

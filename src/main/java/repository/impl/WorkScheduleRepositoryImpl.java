@@ -25,9 +25,9 @@ public class WorkScheduleRepositoryImpl implements WorkscheduleRepository {
     }
 
     @Override
-    public void update(Integer id, Integer weekday, Time startTime, Time endTime, Integer employeeId) {
-        String SQL = "UPDATE WorkSchedule SET weekday = ?, startTime = ?, endTime = ?, employeeId = ? WHERE id = ?";
-        jdbcTemplate.update( SQL, weekday, startTime, endTime, employeeId, id);
+    public void update(Integer weekday, Time startTime, Time endTime, Integer employeeId) {
+        String SQL = "UPDATE WorkSchedule SET weekday = ?, startTime = ?, endTime = ?, employeeId = ? WHERE weekday = ? and employeeId = ?";
+        jdbcTemplate.update( SQL, weekday, startTime, endTime, employeeId, weekday, employeeId);
     }
 
     @Override
