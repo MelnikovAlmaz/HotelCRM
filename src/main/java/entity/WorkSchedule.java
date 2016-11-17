@@ -1,14 +1,14 @@
 package entity;
 
+import java.sql.Time;
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 public class WorkSchedule {
     private LocalDate date;
     private Integer weekday;
-    private LocalTime startTime;
-    private LocalTime endTime;
-    private Employee employee;
+    private Time startTime;
+    private Time endTime;
+    private Integer employeeId;
 
     public LocalDate getDate() {
         return date;
@@ -26,27 +26,27 @@ public class WorkSchedule {
         this.weekday = weekday;
     }
 
-    public LocalTime getStartTime() {
+    public Time getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(LocalTime startTime) {
+    public void setStartTime(Time startTime) {
         this.startTime = startTime;
     }
 
-    public LocalTime getEndTime() {
+    public Time getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(LocalTime endTime) {
+    public void setEndTime(Time endTime) {
         this.endTime = endTime;
     }
 
-    public Employee getEmployee() {
-        return employee;
+    public Integer getEmployeeId() {
+        return employeeId;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setEmployeeId(Integer employeeId) {
+        this.employeeId = employeeId;
     }
 }

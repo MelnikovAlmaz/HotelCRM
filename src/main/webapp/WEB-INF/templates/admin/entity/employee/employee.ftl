@@ -1,4 +1,4 @@
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
 <#include "../../head.ftl">
 </head>
@@ -10,7 +10,7 @@
         <main class="col-lg-7">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <span>Department</span>
+                    <span>Employee</span>
                 </div>
                 <div class="panel-body">
                     <form method="post" action="/admin/entity/${hotel.id}/employee/${employee.id}">
@@ -45,7 +45,7 @@
                         <div class="input-group input-margin">
                             <span class="input-group-addon"></span>
                             <input type="number" step="0.1" min="1" class="form-control" name="salary"
-                                   placeholder="Salary" value=${employee.salary}>
+                                   placeholder="Salary" value=${employee.salary?number}>
                         </div>
                         <label class="control-label" for="salaryType">Salary Type</label>
                         <div class="input-group input-margin">
@@ -68,28 +68,29 @@
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                         <input type="submit" class="btn btn-success" value="Save">
                     </form>
-                    <div class="panel">
+                    <div class="panel  panel-default">
                         <div class="panel-heading">
-                            WorkSchedule
+                            <span>WorkSchedule</span>
                         </div>
                         <div class="panel-body">
-                        <#if workschedules??>
-                            <#list workschedules as workschedule>
-                                <div class="col-md-3 panel">
-                                    <div class="panel-heading">
-                                    ${workschedule.weekday}
+                        <#if workSchedules??>
+                            <#list workSchedules as workschedule>
+                                <div class="col-sm-4 panel panel-default">
+                                    <div class="panel-heading ">
+                                    <span>${workschedule.weekday}</span>
                                     </div>
                                     <div class="panel-body">
-                                        <form action="/admin/entity/workschedule/${workschedule.id}"
-                                        <div class="form-group">
-                                            <input type="time" class="form-control" name="beginDate"
-                                                   value="${workschedule.startTime}"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="time" class="form-control" name="endDate"
-                                                   value="${workschedule.endTime}"/>
-                                        </div>
-                                        <button type="submit" class="btn btn-success">Edit</button>
+                                        <form action="/admin/entity/workschedule/${workschedule.weekday}">
+                                            <div class="form-group">
+                                                <input type="time" class="form-control" name="beginDate"
+                                                       value="${workschedule.startTime?time?string("HH:mm")}"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="time" class="form-control" name="endDate"
+                                                       value="${workschedule.endTime?time?string("HH:mm")}"/>
+                                            </div>
+                                            <button type="submit" class="btn btn-success">Edit</button>
+                                        </form>
                                     </div>
                                 </div>
                             </#list>

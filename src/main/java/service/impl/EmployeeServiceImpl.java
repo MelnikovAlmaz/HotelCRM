@@ -63,17 +63,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public List<Employee> findAllEmployeesByHotelId(Integer hotelId) {
-        List<Employee> employees = employeeRepository.findAllEmployees();
-        List<Employee> employeesByHotelId = new LinkedList<>();
-
-        for (Employee employee : employees){
-            if(employee.getDepartmentId() != 0) {
-                Department department = departmentService.findDepartmentById(employee.getDepartmentId());
-                if (department.getHotel().getId() == hotelId) {
-                    employeesByHotelId.add(employee);
-                }
-            }
-        }
-        return employeesByHotelId;
+        List<Employee> employees = employeeRepository.findAllEmployeesByHotelId(hotelId);
+        return employees;
     }
 }
