@@ -6,9 +6,19 @@
 <#include "main-header.ftl">
 <#include "search-navbar-form.ftl">
 <main class="main">
-    <div class="container col-lg-8 col-lg-offset-2">
-        <h1 class="title_b">${hotel.name}</h1>
-        <p class="description_b">${hotel.description}</p>
+
+    <div class="row">
+        <div class="col-lg-6" style="background: url(/assets/img/hotel/${hotel.id}) center no-repeat; height:350px" ></div>
+        <div class="col-lg-6" style="background-color: #edf753; height:350px">
+            <h1 class="title_b">${hotel.name}</h1>
+            <p class="description_b">${hotel.description}</p>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="container-fluid col-lg-8 col-lg-offset-2">
+
         <div class="form-group">
             <input type="date" class="form-control" placeholder="Begin date" id="begin-date" name="beginDate"
                    value=${beginDate}>
