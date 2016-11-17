@@ -29,9 +29,7 @@
     width: 100%;
     background-color: #5e5e5e;
     padding-top: 2.5px;
-    display: inline;
-    display: inline-block;
-    display: -webkit-inline-box;
+
 }
 
 .login_form{

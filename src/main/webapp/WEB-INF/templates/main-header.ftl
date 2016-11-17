@@ -1,6 +1,8 @@
 <header>
     <section class="login-header">
+    <div class="buttons" style="float: right; display: -webkit-box">
         <#if user??>
+
             <p style="padding-top: 5px">Good time of day: ${user.name} </p>
 
             <div class="btn-group" style="padding-left: 10px">
@@ -14,10 +16,13 @@
             </div>
 
         <#else>
+
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#logging">Log in</button>
             <p class="or"> or </p>
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#registry">Register</button>
+
         </#if>
+    </div>
     </section>
 
     <#include "loggingButtons.ftl">

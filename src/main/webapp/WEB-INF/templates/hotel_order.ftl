@@ -17,7 +17,7 @@
 
     <br>
 
-    <div class="container-fluid col-lg-8 col-lg-offset-2">
+    <div class="container-fluid col-lg-12" style="padding-top: 15px; background-color: cornflowerblue;">
 
         <div class="form-group">
             <input type="date" class="form-control" placeholder="Begin date" id="begin-date" name="beginDate"
